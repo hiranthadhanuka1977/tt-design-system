@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "description": "Prioritized component build order for Figma MCP (figma-generate-library workflow)",
+    "totalComponents": 42,
+    "estimatedUseFigmaCalls": "80-120",
+    "rule": "Build atoms before molecules. Validate each component with get_screenshot before proceeding."
+  },
+  "phases": [
+    {
+      "phase": 0,
+      "name": "Discovery",
+      "steps": [
+        "Read tokens.json and css/tokens.css",
+        "Inspect target Figma file (or create_new_file)",
+        "Run search_design_system for existing library matches",
+        "Lock v1 scope with user approval"
+      ],
+      "checkpoint": "Present token list + component list for approval"
+    },
+    {
+      "phase": 1,
+      "name": "Foundations",
+      "steps": [
+        "Create variable collection: Primitives (colors)",
+        "Create variable collection: Color (light/dark semantic aliases)",
+        "Create variable collection: Spacing",
+        "Create variable collection: Radius",
+        "Create variable collection: Layout",
+        "Create text styles from tokens.json typography.textStyles",
+        "Create effect styles from tokens.json shadows",
+        "Build foundations documentation page (color swatches, spacing bars)"
+      ],
+      "script": "figma/scripts/phase1-import-tokens.js",
+      "checkpoint": "Show variable summary before file structure"
+    },
+    {
+      "phase": 2,
+      "name": "File Structure",
+      "pages": [
+        "Cover",
+        "Getting Started",
+        "Foundations",
+        "---",
+        "Icons",
+        "Components",
+        "---",
+        "Screens"
+      ],
+      "checkpoint": "Show page list screenshot"
+    },
+    {
+      "phase": 3,
+      "name": "Components",
+      "groups": [
+        {
+          "tier": 1,
+          "name": "Atoms — Icons & Primitives",
+          "priority": 1,
+          "components": [
+            {
+              "name": "Icon",
+              "cssBase": ".icon",
+              "variants": { "Size": ["sm", "md", "lg"] },
+              "notes": "INSTANCE_SWAP parent for all icons. Upload SVGs from icons/ folder.",
+              "dependsOn": []
+            },
+            {
+              "name": "Avatar",
+              "cssBase": ".avatar",
+              "variants": { "Size": ["xs", "sm", "md", "lg", "xl"], "Type": ["Initials", "Image"] },
+              "properties": { "TEXT": "Initials" },
+              "dependsOn": []
+            },
+            {
+              "name": "Badge",
+              "cssBase": ".badge",
+              "variants": { "Style": ["default", "brand", "success", "warning", "danger", "info", "discovery", "outline"], "HasDot": [true, false] },
+              "properties": { "TEXT": "Label" },
+              "dependsOn": [],
+              "codeConnect": "figma/code-connect/Badge.figma.ts"
+            },
+            {
+              "name": "Kbd",
+              "cssBase": ".kbd",
+              "variants": {},
+              "properties": { "TEXT": "Key" },
+              "dependsOn": []
+            }
+          ]
+        },
+        {
+          "tier": 2,
+          "name": "Atoms — Actions & Inputs",
+          "priority": 2,
+          "components": [
+            {
+              "name": "Button",
+              "cssBase": ".btn",
+              "variants": {
+                "Style": ["primary", "secondary", "subtle", "danger", "danger-subtle", "link"],
+                "Size": ["sm", "md", "lg"],
+                "State": ["default", "hover", "disabled"],
+                "IconOnly": [true, false]
+              },
+              "properties": { "TEXT": "Label", "BOOLEAN": "Disabled", "INSTANCE_SWAP": "Icon" },
+              "dependsOn": ["Icon"],
+              "codeConnect": "figma/code-connect/Button.figma.ts",
+              "variantCount": 36,
+              "note": "Cap at 30 variants — split IconOnly into separate IconButton component"
+            },
+            {
+              "name": "IconButton",
+              "cssBase": ".btn.btn--icon",
+              "variants": { "Style": ["primary", "secondary", "subtle"], "Size": ["sm", "md", "lg"], "State": ["default", "hover", "disabled"] },
+              "properties": { "INSTANCE_SWAP": "Icon" },
+              "dependsOn": ["Icon"]
+            },
+            {
+              "name": "Input",
+              "cssBase": ".input",
+              "variants": { "Size": ["sm", "md", "lg"], "State": ["default", "focus", "error", "disabled"] },
+              "properties": { "TEXT": "Placeholder" },
+              "dependsOn": []
+            },
+            {
+              "name": "Textarea",
+              "cssBase": ".input.textarea",
+              "variants": { "State": ["default", "focus", "error", "disabled"] },
+              "properties": { "TEXT": "Placeholder" },
+              "dependsOn": ["Input"]
+            },
+            {
+              "name": "Select",
+              "cssBase": ".input.select",
+              "variants": { "State": ["default", "focus", "disabled"] },
+              "properties": { "TEXT": "Value" },
+              "dependsOn": ["Input", "Icon"]
+            },
+            {
+              "name": "Checkbox",
+              "cssBase": ".checkbox",
+              "variants": { "State": ["unchecked", "checked", "disabled"] },
+              "properties": { "TEXT": "Label" },
+              "dependsOn": []
+            },
+            {
+              "name": "Radio",
+              "cssBase": ".radio",
+              "variants": { "State": ["unchecked", "checked", "disabled"] },
+              "properties": { "TEXT": "Label" },
+              "dependsOn": []
+            },
+            {
+              "name": "Switch",
+              "cssBase": ".switch",
+              "variants": { "State": ["off", "on", "disabled"] },
+              "properties": { "TEXT": "Label" },
+              "dependsOn": []
+            }
+          ]
+        },
+        {
+          "tier": 3,
+          "name": "Atoms — Content",
+          "priority": 3,
+          "components": [
+            { "name": "Tag", "cssBase": ".tag", "variants": {}, "properties": { "TEXT": "Label", "BOOLEAN": "Removable" }, "dependsOn": ["Icon"] },
+            { "name": "Chip", "cssBase": ".chip", "variants": { "Selected": [true, false] }, "properties": { "TEXT": "Label" }, "dependsOn": [] },
+            { "name": "Link", "cssBase": ".link", "variants": { "Style": ["default", "subtle"] }, "properties": { "TEXT": "Label" }, "dependsOn": [] },
+            { "name": "Divider", "cssBase": ".divider", "variants": { "Style": ["horizontal", "vertical", "with-text"] }, "properties": { "TEXT": "Label" }, "dependsOn": [] },
+            { "name": "Spinner", "cssBase": ".spinner", "variants": { "Size": ["sm", "md", "lg"] }, "dependsOn": [] },
+            { "name": "Skeleton", "cssBase": ".skeleton", "variants": { "Type": ["text", "avatar", "button"] }, "dependsOn": [] }
+          ]
+        },
+        {
+          "tier": 4,
+          "name": "Molecules — Feedback",
+          "priority": 4,
+          "components": [
+            { "name": "Alert", "cssBase": ".alert", "variants": { "Type": ["info", "success", "warning", "danger"] }, "properties": { "TEXT": ["Title", "Description"] }, "dependsOn": ["Icon", "Button"] },
+            { "name": "Toast", "cssBase": ".toast", "variants": {}, "properties": { "TEXT": ["Title", "Description"] }, "dependsOn": ["Icon", "IconButton"] },
+            { "name": "Tooltip", "cssBase": ".tooltip", "variants": {}, "properties": { "TEXT": "Content" }, "dependsOn": [] },
+            { "name": "Progress", "cssBase": ".progress", "variants": { "Style": ["default", "success", "warning", "danger"] }, "properties": { "TEXT": "Percentage" }, "dependsOn": [] },
+            { "name": "EmptyState", "cssBase": ".empty-state", "variants": {}, "properties": { "TEXT": ["Title", "Description"] }, "dependsOn": ["Icon", "Button"] }
+          ]
+        },
+        {
+          "tier": 5,
+          "name": "Molecules — Navigation",
+          "priority": 5,
+          "components": [
+            { "name": "Tab", "cssBase": ".tab", "variants": { "Active": [true, false], "HasCount": [true, false] }, "properties": { "TEXT": ["Label", "Count"] }, "dependsOn": [] },
+            { "name": "Breadcrumb", "cssBase": ".breadcrumbs", "variants": {}, "properties": { "TEXT": "Path" }, "dependsOn": ["Link"] },
+            { "name": "Pagination", "cssBase": ".pagination", "variants": {}, "dependsOn": ["IconButton"] },
+            { "name": "SidebarItem", "cssBase": ".sidebar__item", "variants": { "Active": [true, false] }, "properties": { "TEXT": "Label", "INSTANCE_SWAP": "Icon", "BOOLEAN": "HasBadge" }, "dependsOn": ["Icon", "Badge"] },
+            { "name": "ListItem", "cssBase": ".list-item", "variants": { "Selected": [true, false] }, "properties": { "TEXT": ["Title", "Subtitle"], "INSTANCE_SWAP": "Icon" }, "dependsOn": ["Icon"] }
+          ]
+        },
+        {
+          "tier": 6,
+          "name": "Molecules — Containers",
+          "priority": 6,
+          "components": [
+            { "name": "Card", "cssBase": ".card", "variants": { "Style": ["default", "shadow", "interactive"] }, "properties": { "BOOLEAN": ["HasHeader", "HasFooter"] }, "dependsOn": [] },
+            { "name": "Modal", "cssBase": ".modal", "variants": { "Size": ["sm", "md", "lg", "xl"] }, "properties": { "TEXT": "Title", "BOOLEAN": ["HasFooter"] }, "dependsOn": ["Button", "IconButton"] },
+            { "name": "Drawer", "cssBase": ".drawer", "variants": { "Size": ["md", "lg"] }, "properties": { "TEXT": "Title" }, "dependsOn": ["IconButton"] },
+            { "name": "DropdownMenu", "cssBase": ".dropdown__menu", "variants": {}, "dependsOn": ["ListItem", "Divider"] },
+            { "name": "Accordion", "cssBase": ".accordion__item", "variants": { "Open": [true, false] }, "properties": { "TEXT": ["Title", "Content"] }, "dependsOn": ["Icon"] },
+            { "name": "Stepper", "cssBase": ".stepper__step", "variants": { "State": ["default", "active", "complete"] }, "properties": { "TEXT": "Label" }, "dependsOn": [] }
+          ]
+        },
+        {
+          "tier": 7,
+          "name": "JIRA Domain",
+          "priority": 7,
+          "components": [
+            { "name": "IssueType", "cssBase": ".issue-type", "variants": { "Type": ["epic", "story", "task", "bug", "subtask"] }, "properties": { "TEXT": "Key" }, "dependsOn": [] },
+            { "name": "Priority", "cssBase": ".priority", "variants": { "Level": ["highest", "high", "medium", "low", "lowest"] }, "properties": { "TEXT": "Label" }, "dependsOn": ["Icon"] },
+            { "name": "Status", "cssBase": ".status", "variants": { "Type": ["todo", "in-progress", "in-review", "done", "blocked"] }, "properties": { "TEXT": "Label" }, "dependsOn": [] },
+            { "name": "IssueKey", "cssBase": ".issue-key", "variants": {}, "properties": { "TEXT": "Key" }, "dependsOn": [] },
+            { "name": "IssueCard", "cssBase": ".issue-card", "variants": {}, "properties": { "TEXT": "Title" }, "dependsOn": ["IssueType", "Priority", "Status", "Avatar", "Badge"] },
+            { "name": "KanbanColumn", "cssBase": ".kanban__column", "variants": {}, "properties": { "TEXT": "Title" }, "dependsOn": ["IssueCard"] },
+            { "name": "MetricCard", "cssBase": ".metric-card", "variants": {}, "properties": { "TEXT": ["Label", "Value", "Change"] }, "dependsOn": [] },
+            { "name": "Comment", "cssBase": ".comment", "variants": {}, "properties": { "TEXT": ["Author", "Time", "Body"] }, "dependsOn": ["Avatar"] },
+            { "name": "TimelineItem", "cssBase": ".timeline__item", "variants": {}, "properties": { "TEXT": ["Author", "Time", "Body"] }, "dependsOn": ["Avatar"] },
+            { "name": "Attachment", "cssBase": ".attachment", "variants": {}, "properties": { "TEXT": ["Name", "Size"] }, "dependsOn": ["Icon", "IconButton"] }
+          ]
+        },
+        {
+          "tier": 8,
+          "name": "Organisms — Layout",
+          "priority": 8,
+          "components": [
+            { "name": "Topbar", "cssBase": ".topbar", "dependsOn": ["Input", "Button", "IconButton", "Avatar"] },
+            { "name": "Sidebar", "cssBase": ".sidebar", "dependsOn": ["SidebarItem"] },
+            { "name": "PageHeader", "cssBase": ".page-header", "dependsOn": ["Breadcrumb", "Tab", "Button"] },
+            { "name": "FilterBar", "cssBase": ".filter-bar", "dependsOn": ["Chip", "Button"] },
+            { "name": "Table", "cssBase": ".table", "dependsOn": ["IssueType", "IssueKey", "Status", "Priority", "Avatar", "Badge", "Checkbox"] },
+            { "name": "KanbanBoard", "cssBase": ".kanban", "dependsOn": ["KanbanColumn"] }
+          ]
+        }
+      ],
+      "checkpoint": "Screenshot each component page before next"
+    },
+    {
+      "phase": 4,
+      "name": "Screens",
+      "pages": [
+        { "name": "Project Dashboard", "source": "pages/project-dashboard.html", "method": "generate_figma_design + use_figma parallel" },
+        { "name": "Kanban Board", "source": "pages/kanban-board.html", "method": "generate_figma_design + use_figma parallel" },
+        { "name": "Backlog", "source": "pages/backlog.html", "method": "generate_figma_design + use_figma parallel" },
+        { "name": "Issue Detail", "source": "pages/issue-detail.html", "method": "generate_figma_design + use_figma parallel" },
+        { "name": "Sprint Reports", "source": "pages/sprint-dashboard.html", "method": "generate_figma_design + use_figma parallel" }
+      ],
+      "checkpoint": "Screenshot each screen, delete capture reference layers"
+    },
+    {
+      "phase": 5,
+      "name": "Code Connect",
+      "steps": [
+        "Update FIGMA_FILE_KEY in figma.config.json",
+        "Add node-id URLs to each .figma.ts stub",
+        "Run get_code_connect_suggestions to verify unmapped components",
+        "Publish: npx figma connect publish"
+      ]
+    }
+  ]
+}

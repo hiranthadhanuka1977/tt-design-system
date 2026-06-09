@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — JRT</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../figma/capture.js" async></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="project-dashboard.html" class="topbar__logo">JRT</a>
+      </div>
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Workspace</div>
+          <a href="project-dashboard.html" class="sidebar__item is-active"><span class="sidebar__item-icon">&#127968;</span> Projects</a>
+          <a href="kanban-board.html" class="sidebar__item"><span class="sidebar__item-icon">&#128203;</span> Recent</a>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Starred</div>
+          <a href="kanban-board.html" class="sidebar__item"><span class="sidebar__item-icon">&#128295;</span> Engineering</a>
+          <a href="#" class="sidebar__item"><span class="sidebar__item-icon">&#127912;</span> Design</a>
+          <a href="#" class="sidebar__item"><span class="sidebar__item-icon">&#128226;</span> Marketing</a>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Design System</div>
+          <a href="../index.html" class="sidebar__item"><span class="sidebar__item-icon">&#9881;</span> Components</a>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="app__main">
+      <header class="topbar">
+        <div class="topbar__search">
+          <div class="search-input">
+            <span class="search-input__icon">&#128269;</span>
+            <input type="search" class="input input--sm" placeholder="Search projects, issues, people...">
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn--subtle btn--icon btn--sm">&#128276;</button>
+          <button class="btn btn--primary btn--sm">Create</button>
+          <span class="avatar avatar--sm">JD</span>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <div class="page-header__top">
+          <div>
+            <h1 class="page-header__title">Welcome back, John</h1>
+            <p class="page-header__subtitle">Here's what's happening across your projects today.</p>
+          </div>
+          <div class="page-header__actions">
+            <button class="btn btn--secondary">Invite Team</button>
+            <button class="btn btn--primary">New Project</button>
+          </div>
+        </div>
+      </div>
+
+      <main class="app__content">
+        <div class="dashboard">
+          <!-- Quick stats -->
+          <div class="dashboard__grid">
+            <div class="metric-card">
+              <div class="metric-card__label">Assigned to Me</div>
+              <div class="metric-card__value">7</div>
+              <div class="metric-card__change">3 due this week</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Open Issues</div>
+              <div class="metric-card__value">47</div>
+              <div class="metric-card__change metric-card__change--down">Across 3 projects</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Active Sprints</div>
+              <div class="metric-card__value">2</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Completed This Week</div>
+              <div class="metric-card__value">12</div>
+              <div class="metric-card__change metric-card__change--up">+4 vs last week</div>
+            </div>
+          </div>
+
+          <div class="dashboard__grid dashboard__grid--2col">
+            <!-- My work -->
+            <div class="card">
+              <div class="card__header flex items-center justify-between">
+                <h3 class="heading-5">My Work</h3>
+                <a href="backlog.html" class="link text-sm">View all</a>
+              </div>
+              <div class="card__body" style="padding:0">
+                <a href="issue-detail.html" class="list-item" style="text-decoration:none;color:inherit">
+                  <span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span>
+                  <div class="list-item__content">
+                    <div class="list-item__title">PROJ-123 — Implement OAuth 2.0 authentication</div>
+                    <div class="list-item__subtitle"><span class="status status--in-progress">In Progress</span> · Due Jun 14</div>
+                  </div>
+                  <span class="priority priority--high">&#9650;</span>
+                </a>
+                <div class="list-item">
+                  <span class="issue-type issue-type--bug"><span class="issue-type__icon"></span></span>
+                  <div class="list-item__content">
+                    <div class="list-item__title">DES-45 — Fix mobile navigation overlap</div>
+                    <div class="list-item__subtitle"><span class="status status--in-review">In Review</span> · Due Jun 10</div>
+                  </div>
+                  <span class="priority priority--medium">&#9650;</span>
+                </div>
+                <div class="list-item">
+                  <span class="issue-type issue-type--task"><span class="issue-type__icon"></span></span>
+                  <div class="list-item__content">
+                    <div class="list-item__title">PROJ-130 — Configure CORS for staging</div>
+                    <div class="list-item__subtitle"><span class="status status--todo">To Do</span> · Due Jun 16</div>
+                  </div>
+                  <span class="priority priority--low">&#9660;</span>
+                </div>
+                <div class="list-item">
+                  <span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span>
+                  <div class="list-item__content">
+                    <div class="list-item__title">MKT-12 — Launch campaign landing page</div>
+                    <div class="list-item__subtitle"><span class="status status--todo">To Do</span> · Due Jun 20</div>
+                  </div>
+                  <span class="priority priority--medium">&#9650;</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent activity -->
+            <div class="card">
+              <div class="card__header">
+                <h3 class="heading-5">Recent Activity</h3>
+              </div>
+              <div class="card__body" style="padding:0">
+                <div class="activity-feed">
+                  <div class="activity-feed__item">
+                    <span class="avatar avatar--sm">AK</span>
+                    <div>
+                      <p class="text-sm"><strong>Alice Kim</strong> commented on <a href="issue-detail.html" class="issue-key">PROJ-123</a></p>
+                      <span class="caption">5 hours ago</span>
+                    </div>
+                  </div>
+                  <div class="activity-feed__item">
+                    <span class="avatar avatar--sm">MR</span>
+                    <div>
+                      <p class="text-sm"><strong>Mike Ross</strong> moved <span class="issue-key">PROJ-125</span> to Done</p>
+                      <span class="caption">Yesterday</span>
+                    </div>
+                  </div>
+                  <div class="activity-feed__item">
+                    <span class="avatar avatar--sm">SL</span>
+                    <div>
+                      <p class="text-sm"><strong>Sarah Lee</strong> created <span class="issue-key">DES-45</span></p>
+                      <span class="caption">Yesterday</span>
+                    </div>
+                  </div>
+                  <div class="activity-feed__item">
+                    <span class="avatar avatar--sm">TW</span>
+                    <div>
+                      <p class="text-sm"><strong>Tom Wilson</strong> started Sprint 24</p>
+                      <span class="caption">2 days ago</span>
+                    </div>
+                  </div>
+                  <div class="activity-feed__item">
+                    <span class="avatar avatar--sm">JD</span>
+                    <div>
+                      <p class="text-sm"><strong>John Doe</strong> updated <a href="issue-detail.html" class="issue-key">PROJ-123</a> description</p>
+                      <span class="caption">3 days ago</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects -->
+          <div class="dashboard__section">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="dashboard__section-title" style="margin:0">Your Projects</h3>
+              <div class="btn-group">
+                <button class="btn btn--secondary btn--sm is-active">All</button>
+                <button class="btn btn--secondary btn--sm">Starred</button>
+                <button class="btn btn--secondary btn--sm">Recent</button>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4">
+              <a href="kanban-board.html" class="card card--interactive" style="text-decoration:none;color:inherit">
+                <div class="card__body">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span style="width:40px;height:40px;background:var(--color-brand-100);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:20px">&#128295;</span>
+                    <div>
+                      <h4 class="heading-5">Engineering</h4>
+                      <span class="caption">PROJ · Software</span>
+                    </div>
+                  </div>
+                  <p class="text-secondary text-sm mb-4">Core platform development, APIs, and infrastructure.</p>
+                  <div class="flex items-center justify-between">
+                    <div class="avatar-group">
+                      <span class="avatar avatar--xs">JD</span>
+                      <span class="avatar avatar--xs">AK</span>
+                      <span class="avatar avatar--xs">MR</span>
+                      <span class="avatar avatar--xs">+3</span>
+                    </div>
+                    <span class="badge badge--brand">24 active</span>
+                  </div>
+                  <div class="mt-3">
+                    <div class="progress-label"><span class="caption">Sprint 24</span><span class="caption">68%</span></div>
+                    <div class="progress"><div class="progress__bar" style="width:68%"></div></div>
+                  </div>
+                </div>
+              </a>
+
+              <div class="card card--interactive">
+                <div class="card__body">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span style="width:40px;height:40px;background:var(--color-discovery-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:20px">&#127912;</span>
+                    <div>
+                      <h4 class="heading-5">Design</h4>
+                      <span class="caption">DES · Design</span>
+                    </div>
+                  </div>
+                  <p class="text-secondary text-sm mb-4">UI/UX design, design system, and user research.</p>
+                  <div class="flex items-center justify-between">
+                    <div class="avatar-group">
+                      <span class="avatar avatar--xs">SL</span>
+                      <span class="avatar avatar--xs">TW</span>
+                    </div>
+                    <span class="badge badge--discovery">8 active</span>
+                  </div>
+                  <div class="mt-3">
+                    <div class="progress-label"><span class="caption">Sprint 8</span><span class="caption">45%</span></div>
+                    <div class="progress"><div class="progress__bar" style="width:45%"></div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card--interactive">
+                <div class="card__body">
+                  <div class="flex items-center gap-3 mb-3">
+                    <span style="width:40px;height:40px;background:var(--color-warning-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:20px">&#128226;</span>
+                    <div>
+                      <h4 class="heading-5">Marketing</h4>
+                      <span class="caption">MKT · Business</span>
+                    </div>
+                  </div>
+                  <p class="text-secondary text-sm mb-4">Campaigns, content, and go-to-market initiatives.</p>
+                  <div class="flex items-center justify-between">
+                    <div class="avatar-group">
+                      <span class="avatar avatar--xs">AK</span>
+                    </div>
+                    <span class="badge badge--warning">3 active</span>
+                  </div>
+                  <div class="mt-3">
+                    <div class="progress-label"><span class="caption">Sprint 3</span><span class="caption">20%</span></div>
+                    <div class="progress progress--warning"><div class="progress__bar" style="width:20%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Alerts -->
+          <div class="alert alert--warning">
+            <span class="alert__icon">&#9888;</span>
+            <div class="alert__content">
+              <div class="alert__title">3 issues due this week</div>
+              <p>You have issues approaching their due dates. <a href="backlog.html" class="link">Review your backlog</a> to stay on track.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="page-footer">
+          <span class="caption">JRT Workspace · 3 projects · 6 team members</span>
+          <a href="../index.html" class="page-footer__link">← Back to Design System</a>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <button class="btn btn--secondary theme-toggle" id="theme-toggle" style="position:fixed;bottom:16px;right:16px;z-index:300">Dark Mode</button>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

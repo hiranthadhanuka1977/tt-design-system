@@ -1,0 +1,34 @@
+{
+  "codeConnect": {
+    "include": [
+      "figma/code-connect/**/*.figma.ts"
+    ],
+    "label": "HTML",
+    "language": "html",
+    "parser": "html"
+  },
+  "documentUrlSubstitutions": {
+    "FIGMA_FILE_KEY": "coHas1OKnJQZghD2I4ZK9q"
+  },
+  "paths": {
+    "html": ["css/components.css", "css/tokens.css"]
+  },
+  "importPaths": {
+    "css/*": "css/*",
+    "icons/*": "icons/*"
+  },
+  "designSystem": {
+    "name": "JIRA Replacement Tool Design System",
+    "version": "1.0.0",
+    "tokensFile": "tokens.json",
+    "componentsCss": "css/components.css",
+    "samplePages": [
+      "pages/project-dashboard.html",
+      "pages/kanban-board.html",
+      "pages/backlog.html",
+      "pages/issue-detail.html",
+      "pages/sprint-dashboard.html"
+    ],
+    "showcasePage": "index.html"
+  }
+}

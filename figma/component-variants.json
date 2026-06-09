@@ -1,0 +1,162 @@
+{
+  "description": "CSS class → Figma variant property mapping for MCP conversion",
+  "conventions": {
+    "bemModifier": "btn--primary → Style=primary",
+    "bemElement": "card__header → layer name Card/Header",
+    "stateClass": "is-active → State=active, is-disabled → State=disabled, is-error → State=error",
+    "dataTheme": "[data-theme=dark] → Figma mode Dark"
+  },
+  "components": {
+    "Button": {
+      "baseClass": "btn",
+      "variantMap": {
+        "btn--primary": { "Style": "primary" },
+        "btn--secondary": { "Style": "secondary" },
+        "btn--subtle": { "Style": "subtle" },
+        "btn--danger": { "Style": "danger" },
+        "btn--danger-subtle": { "Style": "danger-subtle" },
+        "btn--link": { "Style": "link" },
+        "btn--sm": { "Size": "sm" },
+        "btn--lg": { "Size": "lg" },
+        "btn--icon": { "IconOnly": true },
+        "is-disabled": { "State": "disabled" },
+        "is-active": { "State": "active" }
+      },
+      "htmlTemplate": "<button class=\"btn btn--{style} btn--{size}\">{label}</button>"
+    },
+    "Badge": {
+      "baseClass": "badge",
+      "variantMap": {
+        "badge--default": { "Style": "default" },
+        "badge--brand": { "Style": "brand" },
+        "badge--success": { "Style": "success" },
+        "badge--warning": { "Style": "warning" },
+        "badge--danger": { "Style": "danger" },
+        "badge--info": { "Style": "info" },
+        "badge--discovery": { "Style": "discovery" },
+        "badge--outline": { "Style": "outline" },
+        "badge--dot": { "HasDot": true }
+      },
+      "htmlTemplate": "<span class=\"badge badge--{style}\">{label}</span>"
+    },
+    "Status": {
+      "baseClass": "status",
+      "variantMap": {
+        "status--todo": { "Type": "todo" },
+        "status--in-progress": { "Type": "in-progress" },
+        "status--in-review": { "Type": "in-review" },
+        "status--done": { "Type": "done" },
+        "status--blocked": { "Type": "blocked" }
+      },
+      "htmlTemplate": "<span class=\"status status--{type}\">{label}</span>"
+    },
+    "IssueType": {
+      "baseClass": "issue-type",
+      "variantMap": {
+        "issue-type--epic": { "Type": "epic" },
+        "issue-type--story": { "Type": "story" },
+        "issue-type--task": { "Type": "task" },
+        "issue-type--bug": { "Type": "bug" },
+        "issue-type--subtask": { "Type": "subtask" }
+      },
+      "htmlTemplate": "<span class=\"issue-type issue-type--{type}\"><span class=\"issue-type__icon\"></span> {key}</span>"
+    },
+    "Priority": {
+      "baseClass": "priority",
+      "variantMap": {
+        "priority--highest": { "Level": "highest" },
+        "priority--high": { "Level": "high" },
+        "priority--medium": { "Level": "medium" },
+        "priority--low": { "Level": "low" },
+        "priority--lowest": { "Level": "lowest" }
+      }
+    },
+    "Avatar": {
+      "baseClass": "avatar",
+      "variantMap": {
+        "avatar--xs": { "Size": "xs" },
+        "avatar--sm": { "Size": "sm" },
+        "avatar--md": { "Size": "md" },
+        "avatar--lg": { "Size": "lg" },
+        "avatar--xl": { "Size": "xl" }
+      },
+      "htmlTemplate": "<span class=\"avatar avatar--{size}\">{initials}</span>"
+    },
+    "Input": {
+      "baseClass": "input",
+      "variantMap": {
+        "input--sm": { "Size": "sm" },
+        "input--lg": { "Size": "lg" },
+        "is-error": { "State": "error" }
+      },
+      "htmlTemplate": "<input class=\"input input--{size}\" placeholder=\"{placeholder}\">"
+    },
+    "Card": {
+      "baseClass": "card",
+      "variantMap": {
+        "card--shadow": { "Style": "shadow" },
+        "card--interactive": { "Style": "interactive" }
+      },
+      "layers": ["card__header", "card__body", "card__footer"]
+    },
+    "Tab": {
+      "baseClass": "tab",
+      "variantMap": {
+        "is-active": { "Active": true }
+      },
+      "htmlTemplate": "<button class=\"tab {active}\">{label}</button>"
+    },
+    "Chip": {
+      "baseClass": "chip",
+      "variantMap": {
+        "is-selected": { "Selected": true }
+      }
+    },
+    "Switch": {
+      "baseClass": "switch",
+      "states": {
+        "off": "input:not(:checked)",
+        "on": "input:checked",
+        "disabled": "input:disabled"
+      },
+      "figmaVariants": { "State": ["off", "on", "disabled"] }
+    },
+    "Alert": {
+      "baseClass": "alert",
+      "variantMap": {
+        "alert--info": { "Type": "info" },
+        "alert--success": { "Type": "success" },
+        "alert--warning": { "Type": "warning" },
+        "alert--danger": { "Type": "danger" }
+      }
+    }
+  },
+  "pseudoToFigmaState": {
+    ":hover": "State=hover",
+    ":focus": "State=focus",
+    ":active": "State=active",
+    ":disabled": "State=disabled",
+    ".is-disabled": "State=disabled",
+    ".is-active": "State=active",
+    ".is-selected": "Selected=true",
+    ".is-open": "Open=true",
+    ".is-error": "State=error",
+    ".is-done": "State=done"
+  },
+  "iconReplacements": {
+    "search": { "file": "icons/search.svg", "replaces": "&#128269;" },
+    "chevron-down": { "file": "icons/chevron-down.svg", "replaces": "&#9662;" },
+    "chevron-up": { "file": "icons/chevron-up.svg", "replaces": "&#9652;" },
+    "priority-up": { "file": "icons/priority-up.svg", "replaces": "&#9650;" },
+    "priority-down": { "file": "icons/priority-down.svg", "replaces": "&#9660;" },
+    "close": { "file": "icons/close.svg", "replaces": "&times;" },
+    "plus": { "file": "icons/plus.svg", "replaces": "+" },
+    "board": { "file": "icons/board.svg", "replaces": "&#9632;" },
+    "list": { "file": "icons/list.svg", "replaces": "&#9776;" },
+    "chart": { "file": "icons/chart.svg", "replaces": "&#128200;" },
+    "settings": { "file": "icons/settings.svg", "replaces": "&#9881;" },
+    "bell": { "file": "icons/bell.svg", "replaces": "&#128276;" },
+    "document": { "file": "icons/document.svg", "replaces": "&#128196;" },
+    "home": { "file": "icons/home.svg", "replaces": "&#127968;" }
+  }
+}

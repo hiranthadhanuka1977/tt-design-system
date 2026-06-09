@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board — Engineering · JRT</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../figma/capture.js" async></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="project-dashboard.html" class="topbar__logo">JRT</a>
+      </div>
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Engineering</div>
+          <a href="kanban-board.html" class="sidebar__item is-active"><span class="sidebar__item-icon">&#9632;</span> Board</a>
+          <a href="backlog.html" class="sidebar__item"><span class="sidebar__item-icon">&#9776;</span> Backlog</a>
+          <a href="sprint-dashboard.html" class="sidebar__item"><span class="sidebar__item-icon">&#128200;</span> Reports</a>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Issues</div>
+          <a href="issue-detail.html" class="sidebar__item"><span class="sidebar__item-icon">&#128196;</span> PROJ-123</a>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Design System</div>
+          <a href="../index.html" class="sidebar__item"><span class="sidebar__item-icon">&#9881;</span> Components</a>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="app__main">
+      <header class="topbar">
+        <div class="topbar__search">
+          <div class="search-input">
+            <span class="search-input__icon">&#128269;</span>
+            <input type="search" class="input input--sm" placeholder="Search issues, projects, people...">
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn--subtle btn--icon btn--sm" title="Notifications">&#128276;</button>
+          <button class="btn btn--primary btn--sm">Create</button>
+          <span class="avatar avatar--sm">JD</span>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <div class="page-header__top">
+          <div>
+            <nav class="breadcrumbs mb-2">
+              <span class="breadcrumbs__item"><a href="project-dashboard.html">Projects</a><span class="breadcrumbs__separator">/</span></span>
+              <span class="breadcrumbs__item"><a href="project-dashboard.html">Engineering</a><span class="breadcrumbs__separator">/</span></span>
+              <span class="breadcrumbs__item is-current">Sprint 24</span>
+            </nav>
+            <h1 class="page-header__title">Sprint 24 — Authentication</h1>
+            <p class="page-header__subtitle">Jun 2 – Jun 16, 2026 · 12 issues · 5 days remaining · 68% complete</p>
+          </div>
+          <div class="page-header__actions">
+            <button class="btn btn--secondary">Complete Sprint</button>
+            <button class="btn btn--primary">Add Issue</button>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="tabs">
+            <a href="kanban-board.html" class="tab is-active">Board</a>
+            <a href="backlog.html" class="tab">Backlog</a>
+            <a href="sprint-dashboard.html" class="tab">Reports</a>
+          </div>
+          <div class="btn-group">
+            <button class="btn btn--secondary btn--sm is-active">All</button>
+            <button class="btn btn--secondary btn--sm">My Issues</button>
+            <button class="btn btn--secondary btn--sm">Recently Updated</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-bar__label">Quick filters:</span>
+        <span class="chip">Assignee: Anyone</span>
+        <span class="chip is-selected">Sprint: 24</span>
+        <span class="chip">Type: All</span>
+        <span class="chip">Label: authentication</span>
+        <button class="btn btn--subtle btn--sm ml-auto">Clear all</button>
+      </div>
+
+      <main class="app__content app__content--flush">
+        <div class="kanban kanban--full">
+          <!-- To Do -->
+          <div class="kanban__column kanban__column--full">
+            <div class="kanban__column-header">
+              <span class="kanban__column-title">To Do</span>
+              <span class="kanban__column-count">3</span>
+            </div>
+            <div class="kanban__column-body">
+              <a href="issue-detail.html" class="issue-card" style="text-decoration:none;color:inherit">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--bug"><span class="issue-type__icon"></span> PROJ-124</span>
+                  <span class="priority priority--highest">&#9650;&#9650;</span>
+                </div>
+                <div class="issue-card__title">Fix login redirect loop on Safari browsers</div>
+                <div class="issue-card__footer">
+                  <span class="badge badge--danger">bug</span>
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">AK</span></div>
+                </div>
+              </a>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-126</span>
+                  <span class="priority priority--medium">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Add password reset flow with email verification</div>
+                <div class="issue-card__footer">
+                  <span class="badge badge--brand">auth</span>
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">SL</span></div>
+                </div>
+              </div>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-130</span>
+                  <span class="priority priority--low">&#9660;</span>
+                </div>
+                <div class="issue-card__title">Configure CORS policies for staging environment</div>
+                <div class="issue-card__footer">
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">TW</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban__add">+ Create issue</div>
+          </div>
+
+          <!-- In Progress -->
+          <div class="kanban__column kanban__column--full">
+            <div class="kanban__column-header">
+              <span class="kanban__column-title">In Progress</span>
+              <span class="kanban__column-count">3</span>
+            </div>
+            <div class="kanban__column-body">
+              <a href="issue-detail.html" class="issue-card" style="text-decoration:none;color:inherit">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-123</span>
+                  <span class="priority priority--high">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Implement OAuth 2.0 authentication flow</div>
+                <div class="issue-card__footer">
+                  <span class="badge badge--brand">auth</span>
+                  <span class="badge badge--discovery">backend</span>
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">JD</span></div>
+                </div>
+              </a>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-128</span>
+                  <span class="priority priority--high">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Build session management with refresh tokens</div>
+                <div class="issue-card__footer">
+                  <span class="badge badge--brand">auth</span>
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">MR</span></div>
+                </div>
+              </div>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span> PROJ-131</span>
+                  <span class="priority priority--medium">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Write integration tests for Google OAuth</div>
+                <div class="issue-card__footer">
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">AK</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban__add">+ Create issue</div>
+          </div>
+
+          <!-- In Review -->
+          <div class="kanban__column kanban__column--full">
+            <div class="kanban__column-header">
+              <span class="kanban__column-title">In Review</span>
+              <span class="kanban__column-count">2</span>
+            </div>
+            <div class="kanban__column-body">
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-127</span>
+                  <span class="priority priority--low">&#9660;</span>
+                </div>
+                <div class="issue-card__title">Write unit tests for auth module</div>
+                <div class="issue-card__footer">
+                  <span class="badge badge--success">testing</span>
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">TW</span></div>
+                </div>
+              </div>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-129</span>
+                  <span class="priority priority--medium">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Design login page responsive layouts</div>
+                <div class="issue-card__footer">
+                  <span class="badge badge--warning">design</span>
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">SL</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban__add">+ Create issue</div>
+          </div>
+
+          <!-- Done -->
+          <div class="kanban__column kanban__column--full">
+            <div class="kanban__column-header">
+              <span class="kanban__column-title">Done</span>
+              <span class="kanban__column-count">4</span>
+            </div>
+            <div class="kanban__column-body">
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-125</span>
+                  <span class="priority priority--low">&#9660;</span>
+                </div>
+                <div class="issue-card__title">Update API documentation for auth endpoints</div>
+                <div class="issue-card__footer">
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">MR</span></div>
+                </div>
+              </div>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-132</span>
+                  <span class="priority priority--lowest">&#9660;&#9660;</span>
+                </div>
+                <div class="issue-card__title">Set up OAuth app registrations in Google Console</div>
+                <div class="issue-card__footer">
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">JD</span></div>
+                </div>
+              </div>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--epic"><span class="issue-type__icon"></span> PROJ-100</span>
+                  <span class="priority priority--medium">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Authentication Epic — planning complete</div>
+                <div class="issue-card__footer">
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">JD</span></div>
+                </div>
+              </div>
+              <div class="issue-card">
+                <div class="issue-card__header">
+                  <span class="issue-type issue-type--bug"><span class="issue-type__icon"></span> PROJ-120</span>
+                  <span class="priority priority--high">&#9650;</span>
+                </div>
+                <div class="issue-card__title">Fix CSRF token validation on logout</div>
+                <div class="issue-card__footer">
+                  <div class="issue-card__meta"><span class="avatar avatar--xs">AK</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer class="page-footer">
+          <span class="caption">Sprint 24 · Engineering Project · 12 issues</span>
+          <a href="../index.html" class="page-footer__link">← Back to Design System</a>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <button class="btn btn--secondary theme-toggle" id="theme-toggle" style="position:fixed;bottom:16px;right:16px;z-index:300">Dark Mode</button>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

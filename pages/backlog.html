@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backlog — Engineering · JRT</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../figma/capture.js" async></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="project-dashboard.html" class="topbar__logo">JRT</a>
+      </div>
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Engineering</div>
+          <a href="kanban-board.html" class="sidebar__item"><span class="sidebar__item-icon">&#9632;</span> Board</a>
+          <a href="backlog.html" class="sidebar__item is-active"><span class="sidebar__item-icon">&#9776;</span> Backlog</a>
+          <a href="sprint-dashboard.html" class="sidebar__item"><span class="sidebar__item-icon">&#128200;</span> Reports</a>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Design System</div>
+          <a href="../index.html" class="sidebar__item"><span class="sidebar__item-icon">&#9881;</span> Components</a>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="app__main">
+      <header class="topbar">
+        <div class="topbar__search">
+          <div class="search-input">
+            <span class="search-input__icon">&#128269;</span>
+            <input type="search" class="input input--sm" placeholder="Search backlog...">
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn--primary btn--sm">Create Issue</button>
+          <span class="avatar avatar--sm">JD</span>
+        </div>
+      </header>
+
+      <div class="page-header">
+        <div class="page-header__top">
+          <div>
+            <nav class="breadcrumbs mb-2">
+              <span class="breadcrumbs__item"><a href="project-dashboard.html">Projects</a><span class="breadcrumbs__separator">/</span></span>
+              <span class="breadcrumbs__item is-current">Engineering Backlog</span>
+            </nav>
+            <h1 class="page-header__title">Backlog</h1>
+            <p class="page-header__subtitle">47 issues · 3 epics · Sorted by rank</p>
+          </div>
+          <div class="page-header__actions">
+            <button class="btn btn--secondary">Create Sprint</button>
+            <button class="btn btn--primary">Create Issue</button>
+          </div>
+        </div>
+        <div class="tabs">
+          <a href="kanban-board.html" class="tab">Board</a>
+          <a href="backlog.html" class="tab is-active">Backlog <span class="tab__count">47</span></a>
+          <a href="sprint-dashboard.html" class="tab">Reports</a>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <span class="filter-bar__label">Filter:</span>
+        <span class="chip is-selected">All Issues</span>
+        <span class="chip">Epics</span>
+        <span class="chip">Stories</span>
+        <span class="chip">Bugs</span>
+        <span class="chip">Unassigned</span>
+        <span class="chip">No Sprint</span>
+      </div>
+
+      <div class="backlog-toolbar">
+        <label class="checkbox"><input type="checkbox"> Select all</label>
+        <span class="backlog-toolbar__count">Showing 1–10 of 47</span>
+        <div class="ml-auto flex gap-2">
+          <button class="btn btn--secondary btn--sm">Move to Sprint</button>
+          <button class="btn btn--secondary btn--sm">Bulk Edit</button>
+          <button class="btn btn--subtle btn--sm">Export</button>
+        </div>
+      </div>
+
+      <main class="app__content app__content--flush">
+        <div class="table-container" style="border:none;border-radius:0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width:32px"><input type="checkbox"></th>
+                <th class="table__sortable" style="width:100px">Key</th>
+                <th class="table__sortable">Summary</th>
+                <th style="width:100px">Type</th>
+                <th style="width:120px">Status</th>
+                <th style="width:100px">Priority</th>
+                <th style="width:100px">Sprint</th>
+                <th style="width:80px">Points</th>
+                <th style="width:60px">Assignee</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--epic"><span class="issue-type__icon"></span></span> <a href="issue-detail.html" class="issue-key">PROJ-100</a></td>
+                <td class="font-medium">Authentication & Authorization Epic</td>
+                <td><span class="badge badge--discovery">Epic</span></td>
+                <td><span class="status status--in-progress">In Progress</span></td>
+                <td><span class="priority priority--high">&#9650; High</span></td>
+                <td class="text-secondary">Sprint 24</td>
+                <td>—</td>
+                <td><span class="avatar avatar--sm">JD</span></td>
+              </tr>
+              <tr class="is-selected">
+                <td><input type="checkbox" checked></td>
+                <td><span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span> <a href="issue-detail.html" class="issue-key">PROJ-123</a></td>
+                <td class="font-medium">Implement OAuth 2.0 authentication flow</td>
+                <td><span class="badge badge--brand">Story</span></td>
+                <td><span class="status status--in-progress">In Progress</span></td>
+                <td><span class="priority priority--high">&#9650; High</span></td>
+                <td class="text-secondary">Sprint 24</td>
+                <td>8</td>
+                <td><span class="avatar avatar--sm">JD</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--bug"><span class="issue-type__icon"></span></span> <a href="issue-detail.html" class="issue-key">PROJ-124</a></td>
+                <td class="font-medium">Fix login redirect loop on Safari browsers</td>
+                <td><span class="badge badge--danger">Bug</span></td>
+                <td><span class="status status--todo">To Do</span></td>
+                <td><span class="priority priority--highest">&#9650;&#9650; Highest</span></td>
+                <td class="text-secondary">Sprint 24</td>
+                <td>3</td>
+                <td><span class="avatar avatar--sm">AK</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--task"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-125</span></td>
+                <td>Update API documentation for auth endpoints</td>
+                <td><span class="badge badge--default">Task</span></td>
+                <td><span class="status status--done">Done</span></td>
+                <td><span class="priority priority--low">&#9660; Low</span></td>
+                <td class="text-secondary">Sprint 24</td>
+                <td>2</td>
+                <td><span class="avatar avatar--sm">MR</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-126</span></td>
+                <td>Add password reset flow with email verification</td>
+                <td><span class="badge badge--brand">Story</span></td>
+                <td><span class="status status--todo">To Do</span></td>
+                <td><span class="priority priority--medium">&#9650; Medium</span></td>
+                <td class="text-secondary">Sprint 24</td>
+                <td>5</td>
+                <td><span class="avatar avatar--sm">SL</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--epic"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-200</span></td>
+                <td class="font-medium">Performance Optimization Epic</td>
+                <td><span class="badge badge--discovery">Epic</span></td>
+                <td><span class="status status--todo">To Do</span></td>
+                <td><span class="priority priority--medium">&#9650; Medium</span></td>
+                <td class="text-tertiary">—</td>
+                <td>—</td>
+                <td><span class="avatar avatar--sm">MR</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-201</span></td>
+                <td>Implement database query caching layer</td>
+                <td><span class="badge badge--brand">Story</span></td>
+                <td><span class="status status--todo">To Do</span></td>
+                <td><span class="priority priority--medium">&#9650; Medium</span></td>
+                <td class="text-tertiary">—</td>
+                <td>8</td>
+                <td><span class="avatar avatar--sm">TW</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--bug"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-202</span></td>
+                <td>Memory leak in WebSocket connection handler</td>
+                <td><span class="badge badge--danger">Bug</span></td>
+                <td><span class="status status--blocked">Blocked</span></td>
+                <td><span class="priority priority--high">&#9650; High</span></td>
+                <td class="text-tertiary">—</td>
+                <td>5</td>
+                <td><span class="avatar avatar--sm">AK</span></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--task"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-203</span></td>
+                <td>Set up CI/CD pipeline for staging deployments</td>
+                <td><span class="badge badge--default">Task</span></td>
+                <td><span class="status status--todo">To Do</span></td>
+                <td><span class="priority priority--low">&#9660; Low</span></td>
+                <td class="text-tertiary">—</td>
+                <td>3</td>
+                <td class="text-tertiary">—</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span> <span class="issue-key">PROJ-204</span></td>
+                <td>Add real-time notifications via WebSocket</td>
+                <td><span class="badge badge--brand">Story</span></td>
+                <td><span class="status status--todo">To Do</span></td>
+                <td><span class="priority priority--medium">&#9650; Medium</span></td>
+                <td class="text-tertiary">—</td>
+                <td>13</td>
+                <td><span class="avatar avatar--sm">SL</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center justify-between p-4 bg-primary border-t">
+          <span class="caption">1–10 of 47 issues</span>
+          <div class="pagination">
+            <button class="pagination__btn" disabled>&laquo;</button>
+            <button class="pagination__btn is-active">1</button>
+            <button class="pagination__btn">2</button>
+            <button class="pagination__btn">3</button>
+            <button class="pagination__btn">4</button>
+            <button class="pagination__btn">5</button>
+            <button class="pagination__btn">&raquo;</button>
+          </div>
+        </div>
+
+        <footer class="page-footer">
+          <span class="caption">Engineering Backlog · 47 issues total</span>
+          <a href="../index.html" class="page-footer__link">← Back to Design System</a>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <button class="btn btn--secondary theme-toggle" id="theme-toggle" style="position:fixed;bottom:16px;right:16px;z-index:300">Dark Mode</button>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

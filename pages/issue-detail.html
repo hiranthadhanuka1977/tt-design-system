@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJ-123 — Implement OAuth 2.0 · JRT</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <script src="../figma/capture.js" async></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar__header">
+        <a href="project-dashboard.html" class="topbar__logo">JRT</a>
+      </div>
+      <nav class="sidebar__nav">
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Engineering</div>
+          <a href="kanban-board.html" class="sidebar__item"><span class="sidebar__item-icon">&#9632;</span> Board</a>
+          <a href="backlog.html" class="sidebar__item"><span class="sidebar__item-icon">&#9776;</span> Backlog</a>
+          <a href="sprint-dashboard.html" class="sidebar__item"><span class="sidebar__item-icon">&#128200;</span> Reports</a>
+        </div>
+        <div class="sidebar__section">
+          <div class="sidebar__section-title">Design System</div>
+          <a href="../index.html" class="sidebar__item"><span class="sidebar__item-icon">&#9881;</span> Components</a>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="app__main">
+      <header class="topbar">
+        <div class="topbar__search">
+          <div class="search-input">
+            <span class="search-input__icon">&#128269;</span>
+            <input type="search" class="input input--sm" placeholder="Search...">
+          </div>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn--secondary btn--sm">Watch</button>
+          <button class="btn btn--secondary btn--sm">Share</button>
+          <button class="btn btn--primary btn--sm">Edit</button>
+          <span class="avatar avatar--sm">JD</span>
+        </div>
+      </header>
+
+      <div class="page-header" style="padding-bottom:var(--space-3)">
+        <nav class="breadcrumbs mb-3">
+          <span class="breadcrumbs__item"><a href="project-dashboard.html">Projects</a><span class="breadcrumbs__separator">/</span></span>
+          <span class="breadcrumbs__item"><a href="project-dashboard.html">Engineering</a><span class="breadcrumbs__separator">/</span></span>
+          <span class="breadcrumbs__item"><a href="kanban-board.html">Sprint 24</a><span class="breadcrumbs__separator">/</span></span>
+          <span class="breadcrumbs__item is-current">PROJ-123</span>
+        </nav>
+        <div class="flex items-center gap-3">
+          <span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span>
+          <h1 class="heading-3">PROJ-123</h1>
+          <span class="status status--in-progress">In Progress</span>
+        </div>
+      </div>
+
+      <main class="app__content">
+        <div class="issue-layout">
+          <div class="issue-layout__main">
+            <h2 class="issue-detail__title">Implement OAuth 2.0 authentication flow</h2>
+
+            <div class="card">
+              <div class="card__header flex items-center justify-between">
+                <h3 class="heading-5">Description</h3>
+                <button class="btn btn--subtle btn--sm">Edit</button>
+              </div>
+              <div class="card__body">
+                <div class="issue-detail__description">
+                  <p>Implement a complete OAuth 2.0 authentication flow supporting multiple identity providers. Users should be able to sign in using their Google, GitHub, or Microsoft accounts.</p>
+                  <p><strong>Requirements:</strong></p>
+                  <ul>
+                    <li>Support authorization code flow with PKCE</li>
+                    <li>Implement token refresh mechanism</li>
+                    <li>Store tokens securely with encryption at rest</li>
+                    <li>Handle provider-specific edge cases (expired tokens, revoked access)</li>
+                    <li>Add comprehensive logging for auth events</li>
+                  </ul>
+                  <p>Reference: <a href="#" class="link">OAuth 2.0 RFC 6749</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card__header">
+                <h3 class="heading-5">Subtasks <span class="badge badge--default">3 of 5</span></h3>
+              </div>
+              <div class="subtask-list">
+                <div class="subtask-item is-done">
+                  <input type="checkbox" checked>
+                  <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span></span>
+                  <span class="subtask-item__title">PROJ-131 — Set up OAuth app registrations</span>
+                  <span class="avatar avatar--xs">JD</span>
+                </div>
+                <div class="subtask-item is-done">
+                  <input type="checkbox" checked>
+                  <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span></span>
+                  <span class="subtask-item__title">PROJ-132 — Implement Google OAuth provider</span>
+                  <span class="avatar avatar--xs">JD</span>
+                </div>
+                <div class="subtask-item is-done">
+                  <input type="checkbox" checked>
+                  <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span></span>
+                  <span class="subtask-item__title">PROJ-133 — Implement GitHub OAuth provider</span>
+                  <span class="avatar avatar--xs">AK</span>
+                </div>
+                <div class="subtask-item">
+                  <input type="checkbox">
+                  <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span></span>
+                  <span class="subtask-item__title">PROJ-134 — Implement Microsoft OAuth provider</span>
+                  <span class="avatar avatar--xs">MR</span>
+                </div>
+                <div class="subtask-item">
+                  <input type="checkbox">
+                  <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span></span>
+                  <span class="subtask-item__title">PROJ-135 — Add token refresh and session management</span>
+                  <span class="avatar avatar--xs">TW</span>
+                </div>
+              </div>
+              <div class="card__footer">
+                <button class="btn btn--subtle btn--sm">+ Add subtask</button>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card__header">
+                <h3 class="heading-5">Attachments <span class="badge badge--default">2</span></h3>
+              </div>
+              <div class="card__body flex flex-col gap-2">
+                <div class="attachment">
+                  <span class="attachment__icon">&#128196;</span>
+                  <div class="attachment__info">
+                    <div class="attachment__name">oauth-flow-diagram.pdf</div>
+                    <div class="attachment__size">2.4 MB · Added 2 days ago by John Doe</div>
+                  </div>
+                  <button class="btn btn--icon btn--sm btn--subtle">&#8595;</button>
+                </div>
+                <div class="attachment">
+                  <span class="attachment__icon">&#128196;</span>
+                  <div class="attachment__info">
+                    <div class="attachment__name">auth-api-spec.yaml</div>
+                    <div class="attachment__size">18 KB · Added 5 days ago by John Doe</div>
+                  </div>
+                  <button class="btn btn--icon btn--sm btn--subtle">&#8595;</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card__header">
+                <div class="tabs" style="border:none;margin:0">
+                  <button class="tab is-active">Comments <span class="tab__count">4</span></button>
+                  <button class="tab">Activity</button>
+                  <button class="tab">History</button>
+                </div>
+              </div>
+              <div class="card__body" style="padding:0">
+                <div class="comment" style="border-bottom:1px solid var(--color-border-subtle)">
+                  <span class="comment__avatar"><span class="avatar avatar--md">AK</span></span>
+                  <div class="comment__body">
+                    <div class="comment__header">
+                      <span class="comment__author">Alice Kim</span>
+                      <span class="comment__time">5 hours ago</span>
+                    </div>
+                    <div class="comment__text">I've reviewed the OAuth implementation. The token refresh logic looks solid. One suggestion: add rate limiting on the token endpoint to prevent abuse.</div>
+                    <div class="comment__actions">
+                      <span class="comment__action">Reply</span>
+                      <span class="comment__action">Edit</span>
+                      <span class="comment__action">👍 2</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment" style="border-bottom:1px solid var(--color-border-subtle)">
+                  <span class="comment__avatar"><span class="avatar avatar--md">MR</span></span>
+                  <div class="comment__body">
+                    <div class="comment__header">
+                      <span class="comment__author">Mike Ross</span>
+                      <span class="comment__time">Yesterday</span>
+                    </div>
+                    <div class="comment__text">Microsoft OAuth provider credentials are configured in the staging environment. Ready for integration testing.</div>
+                    <div class="comment__actions">
+                      <span class="comment__action">Reply</span>
+                      <span class="comment__action">👍 1</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment-composer" style="padding:var(--space-4)">
+                  <span class="avatar avatar--md">JD</span>
+                  <div class="comment-composer__input">
+                    <textarea class="input textarea" rows="3" placeholder="Add a comment..."></textarea>
+                    <div class="flex justify-end gap-2 mt-2">
+                      <button class="btn btn--secondary btn--sm">Cancel</button>
+                      <button class="btn btn--primary btn--sm">Comment</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="issue-layout__sidebar">
+            <div class="detail-panel">
+              <div class="detail-panel__header">Details</div>
+              <div class="detail-panel__body">
+                <div class="detail-field">
+                  <span class="detail-field__label">Status</span>
+                  <span class="detail-field__value"><span class="status status--in-progress">In Progress</span></span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Assignee</span>
+                  <span class="detail-field__value flex items-center gap-2" style="justify-content:flex-end"><span class="avatar avatar--xs">JD</span> John Doe</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Reporter</span>
+                  <span class="detail-field__value flex items-center gap-2" style="justify-content:flex-end"><span class="avatar avatar--xs">MR</span> Mike Ross</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Priority</span>
+                  <span class="detail-field__value"><span class="priority priority--high">&#9650; High</span></span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Story Points</span>
+                  <span class="detail-field__value"><span class="inline-edit">8 <span class="inline-edit__icon">&#9998;</span></span></span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Sprint</span>
+                  <span class="detail-field__value"><a href="kanban-board.html" class="link">Sprint 24</a></span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Epic</span>
+                  <span class="detail-field__value"><span class="issue-type issue-type--epic"><span class="issue-type__icon"></span></span> PROJ-100</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-panel">
+              <div class="detail-panel__header">Dates</div>
+              <div class="detail-panel__body">
+                <div class="detail-field">
+                  <span class="detail-field__label">Created</span>
+                  <span class="detail-field__value">May 28, 2026</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Updated</span>
+                  <span class="detail-field__value">2 hours ago</span>
+                </div>
+                <div class="detail-field">
+                  <span class="detail-field__label">Due Date</span>
+                  <span class="detail-field__value text-danger">Jun 14, 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-panel">
+              <div class="detail-panel__header">Labels</div>
+              <div class="detail-panel__body" style="padding:var(--space-3) var(--space-4)">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">authentication <button class="tag__remove">&times;</button></span>
+                  <span class="tag">backend <button class="tag__remove">&times;</button></span>
+                  <span class="tag">security <button class="tag__remove">&times;</button></span>
+                  <button class="btn btn--subtle btn--sm">+ Add label</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="detail-panel">
+              <div class="detail-panel__header">Watchers <span class="badge badge--default">3</span></div>
+              <div class="detail-panel__body" style="padding:var(--space-3) var(--space-4)">
+                <div class="avatar-group">
+                  <span class="avatar avatar--sm">JD</span>
+                  <span class="avatar avatar--sm">AK</span>
+                  <span class="avatar avatar--sm">MR</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <footer class="page-footer">
+          <span class="caption">PROJ-123 · Created May 28, 2026 · Updated 2 hours ago</span>
+          <a href="../index.html" class="page-footer__link">← Back to Design System</a>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <button class="btn btn--secondary theme-toggle" id="theme-toggle" style="position:fixed;bottom:16px;right:16px;z-index:300">Dark Mode</button>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.setAttribute('data-theme', html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

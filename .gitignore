@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Environment & secrets
+.env
+.env.*
+*.pem
+
+# OS & editor
+.DS_Store
+Thumbs.db
+.cursor/
+.vscode/
+
+# Logs & caches
+*.log
+__pycache__/
+.pytest_cache/
