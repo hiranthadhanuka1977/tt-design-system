@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — JIRA Replacement Tool</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="ds-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="ds-sidebar">
+      <div class="ds-sidebar__brand">
+        <h1>DS / JRT</h1>
+        <p>Design System v1.0</p>
+      </div>
+      <nav>
+        <div class="ds-nav__group">
+          <div class="ds-nav__label">Foundation</div>
+          <a href="#colors" class="ds-nav__link">Colors</a>
+          <a href="#typography" class="ds-nav__link">Typography</a>
+          <a href="#spacing" class="ds-nav__link">Spacing</a>
+          <a href="#shadows" class="ds-nav__link">Shadows</a>
+          <a href="#radius" class="ds-nav__link">Border Radius</a>
+          <a href="#layout" class="ds-nav__link">Layout Tokens</a>
+        </div>
+        <div class="ds-nav__group">
+          <div class="ds-nav__label">Components</div>
+          <a href="#buttons" class="ds-nav__link">Buttons</a>
+          <a href="#inputs" class="ds-nav__link">Form Inputs</a>
+          <a href="#badges" class="ds-nav__link">Badges & Tags</a>
+          <a href="#avatars" class="ds-nav__link">Avatars</a>
+          <a href="#cards" class="ds-nav__link">Cards</a>
+          <a href="#alerts" class="ds-nav__link">Alerts & Toasts</a>
+          <a href="#modals" class="ds-nav__link">Modals & Drawers</a>
+          <a href="#dropdowns" class="ds-nav__link">Dropdowns & Menus</a>
+          <a href="#tooltips" class="ds-nav__link">Tooltips</a>
+          <a href="#tabs" class="ds-nav__link">Tabs</a>
+          <a href="#breadcrumbs" class="ds-nav__link">Breadcrumbs</a>
+          <a href="#pagination" class="ds-nav__link">Pagination</a>
+          <a href="#tables" class="ds-nav__link">Tables</a>
+          <a href="#progress" class="ds-nav__link">Progress & Loading</a>
+          <a href="#dividers" class="ds-nav__link">Dividers</a>
+          <a href="#accordion" class="ds-nav__link">Accordion</a>
+          <a href="#stepper" class="ds-nav__link">Stepper</a>
+          <a href="#empty-state" class="ds-nav__link">Empty State</a>
+          <a href="#navigation" class="ds-nav__link">Navigation</a>
+          <a href="#page-header" class="ds-nav__link">Page Header</a>
+        </div>
+        <div class="ds-nav__group">
+          <div class="ds-nav__label">JIRA Components</div>
+          <a href="#issue-types" class="ds-nav__link">Issue Types</a>
+          <a href="#priorities" class="ds-nav__link">Priorities</a>
+          <a href="#statuses" class="ds-nav__link">Statuses</a>
+          <a href="#issue-cards" class="ds-nav__link">Issue Cards</a>
+          <a href="#kanban" class="ds-nav__link">Kanban Board</a>
+          <a href="#sprint" class="ds-nav__link">Sprint & Metrics</a>
+          <a href="#activity" class="ds-nav__link">Activity & Comments</a>
+          <a href="#filters" class="ds-nav__link">Filters</a>
+          <a href="#command-palette" class="ds-nav__link">Command Palette</a>
+          <a href="#lists" class="ds-nav__link">Lists & Tree</a>
+          <a href="#file-upload" class="ds-nav__link">File Upload</a>
+          <a href="#app-preview" class="ds-nav__link">App Preview</a>
+        </div>
+        <div class="ds-nav__group">
+          <div class="ds-nav__label">Sample Pages</div>
+          <a href="pages/project-dashboard.html" class="ds-nav__link">Project Dashboard</a>
+          <a href="pages/kanban-board.html" class="ds-nav__link">Kanban Board</a>
+          <a href="pages/backlog.html" class="ds-nav__link">Backlog</a>
+          <a href="pages/issue-detail.html" class="ds-nav__link">Issue Detail</a>
+          <a href="pages/sprint-dashboard.html" class="ds-nav__link">Sprint Reports</a>
+          <a href="#sample-pages" class="ds-nav__link">All Sample Pages</a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ds-main">
+      <!-- Hero -->
+      <section class="ds-section" id="intro">
+        <div class="ds-section__header">
+          <h1 class="heading-1">JIRA Replacement Tool Design System</h1>
+          <p class="ds-section__description">
+            A complete HTML/CSS design system for building enterprise project management applications.
+            All components use CSS custom properties (design tokens) for consistent theming and dark mode support.
+          </p>
+        </div>
+      </section>
+
+      <!-- ═══════════ DESIGN TOKENS ═══════════ -->
+
+      <!-- Colors -->
+      <section class="ds-section" id="colors">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Colors</h2>
+          <p class="ds-section__description">Brand, neutral, semantic, and domain-specific color palettes.</p>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Brand</h3>
+          <div class="token-grid">
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-50)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-50</div><div class="token-swatch__value">#e8f4fd</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-100)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-100</div><div class="token-swatch__value">#c5e4fa</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-200)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-200</div><div class="token-swatch__value">#9ed0f5</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-300)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-300</div><div class="token-swatch__value">#6bb8ef</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-400)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-400</div><div class="token-swatch__value">#3a9fe8</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-500</div><div class="token-swatch__value">#0c66e4</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-600)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-600</div><div class="token-swatch__value">#0055cc</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-700)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-700</div><div class="token-swatch__value">#0047b3</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-800)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-800</div><div class="token-swatch__value">#003899</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-brand-900)"></div><div class="token-swatch__info"><div class="token-swatch__name">brand-900</div><div class="token-swatch__value">#002966</div></div></div>
+          </div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Neutral</h3>
+          <div class="token-grid">
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-0)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-0</div><div class="token-swatch__value">#ffffff</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-50)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-50</div><div class="token-swatch__value">#f4f5f7</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-100)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-100</div><div class="token-swatch__value">#ebecf0</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-200)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-200</div><div class="token-swatch__value">#dfe1e6</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-300)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-300</div><div class="token-swatch__value">#c1c7d0</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-400)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-400</div><div class="token-swatch__value">#97a0af</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-500</div><div class="token-swatch__value">#6b778c</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-600)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-600</div><div class="token-swatch__value">#505f79</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-700)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-700</div><div class="token-swatch__value">#42526e</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-800)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-800</div><div class="token-swatch__value">#253858</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-neutral-900)"></div><div class="token-swatch__info"><div class="token-swatch__name">neutral-900</div><div class="token-swatch__value">#172b4d</div></div></div>
+          </div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Semantic</h3>
+          <div class="token-grid">
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-success-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">success</div><div class="token-swatch__value">#22a06b</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-warning-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">warning</div><div class="token-swatch__value">#e2b203</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-danger-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">danger</div><div class="token-swatch__value">#e34935</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-info-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">info</div><div class="token-swatch__value">#1d7afc</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-discovery-500)"></div><div class="token-swatch__info"><div class="token-swatch__name">discovery</div><div class="token-swatch__value">#8270db</div></div></div>
+          </div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Issue Types & Priorities</h3>
+          <div class="token-grid">
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-issue-epic)"></div><div class="token-swatch__info"><div class="token-swatch__name">epic</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-issue-story)"></div><div class="token-swatch__info"><div class="token-swatch__name">story</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-issue-task)"></div><div class="token-swatch__info"><div class="token-swatch__name">task</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-issue-bug)"></div><div class="token-swatch__info"><div class="token-swatch__name">bug</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-priority-highest)"></div><div class="token-swatch__info"><div class="token-swatch__name">highest</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-priority-high)"></div><div class="token-swatch__info"><div class="token-swatch__name">high</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-priority-medium)"></div><div class="token-swatch__info"><div class="token-swatch__name">medium</div></div></div>
+            <div class="token-swatch"><div class="token-swatch__color" style="background:var(--color-priority-low)"></div><div class="token-swatch__info"><div class="token-swatch__name">low</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Typography -->
+      <section class="ds-section" id="typography">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Typography</h2>
+          <p class="ds-section__description">Font families, sizes, weights, and text styles.</p>
+        </div>
+        <div class="ds-demo">
+          <div class="typography-demo">
+            <div class="typography-row"><span class="typography-row__meta">heading-1 / 28px</span><span class="heading-1">The quick brown fox</span></div>
+            <div class="typography-row"><span class="typography-row__meta">heading-2 / 24px</span><span class="heading-2">The quick brown fox</span></div>
+            <div class="typography-row"><span class="typography-row__meta">heading-3 / 20px</span><span class="heading-3">The quick brown fox</span></div>
+            <div class="typography-row"><span class="typography-row__meta">heading-4 / 18px</span><span class="heading-4">The quick brown fox</span></div>
+            <div class="typography-row"><span class="typography-row__meta">heading-5 / 16px</span><span class="heading-5">The quick brown fox</span></div>
+            <div class="typography-row"><span class="typography-row__meta">heading-6 / 14px</span><span class="heading-6">Section Label</span></div>
+            <div class="typography-row"><span class="typography-row__meta">body / 14px</span><span>Regular body text for descriptions and content.</span></div>
+            <div class="typography-row"><span class="typography-row__meta">label / 12px</span><span class="label">Form Label</span></div>
+            <div class="typography-row"><span class="typography-row__meta">caption / 11px</span><span class="caption">Helper text and metadata</span></div>
+            <div class="typography-row"><span class="typography-row__meta">mono / 14px</span><span class="code">PROJ-1234</span></div>
+            <div class="typography-row"><span class="typography-row__meta">link</span><a href="#" class="link">View issue details</a></div>
+          </div>
+        </div>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--font-family-sans</code></td><td>Inter, system-ui</td><td>Primary UI font</td></tr>
+            <tr><td><code>--font-family-mono</code></td><td>JetBrains Mono</td><td>Issue keys, code</td></tr>
+            <tr><td><code>--font-size-md</code></td><td>0.875rem (14px)</td><td>Default body</td></tr>
+            <tr><td><code>--font-weight-medium</code></td><td>500</td><td>Labels, buttons</td></tr>
+            <tr><td><code>--font-weight-semibold</code></td><td>600</td><td>Headings</td></tr>
+            <tr><td><code>--line-height-normal</code></td><td>1.5</td><td>Body text</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Spacing -->
+      <section class="ds-section" id="spacing">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Spacing</h2>
+          <p class="ds-section__description">Consistent spacing scale based on 4px grid.</p>
+        </div>
+        <div class="ds-demo">
+          <div class="spacing-demo">
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-1);height:32px"></div><span class="spacing-block__label">space-1 (4px)</span></div>
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-2);height:32px"></div><span class="spacing-block__label">space-2 (8px)</span></div>
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-3);height:32px"></div><span class="spacing-block__label">space-3 (12px)</span></div>
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-4);height:32px"></div><span class="spacing-block__label">space-4 (16px)</span></div>
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-6);height:32px"></div><span class="spacing-block__label">space-6 (24px)</span></div>
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-8);height:32px"></div><span class="spacing-block__label">space-8 (32px)</span></div>
+            <div class="spacing-block"><div class="spacing-block__visual" style="width:var(--space-12);height:32px"></div><span class="spacing-block__label">space-12 (48px)</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shadows -->
+      <section class="ds-section" id="shadows">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Shadows</h2>
+          <p class="ds-section__description">Elevation system for depth and hierarchy.</p>
+        </div>
+        <div class="ds-demo">
+          <div class="shadow-demo">
+            <div class="shadow-box" style="box-shadow:var(--shadow-xs)">xs</div>
+            <div class="shadow-box" style="box-shadow:var(--shadow-sm)">sm</div>
+            <div class="shadow-box" style="box-shadow:var(--shadow-md)">md</div>
+            <div class="shadow-box" style="box-shadow:var(--shadow-lg)">lg</div>
+            <div class="shadow-box" style="box-shadow:var(--shadow-xl)">xl</div>
+            <div class="shadow-box" style="box-shadow:var(--shadow-2xl)">2xl</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Border Radius -->
+      <section class="ds-section" id="radius">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Border Radius</h2>
+          <p class="ds-section__description">Corner rounding tokens.</p>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <div class="radius-box" style="border-radius:var(--radius-xs)">xs</div>
+          <div class="radius-box" style="border-radius:var(--radius-sm)">sm</div>
+          <div class="radius-box" style="border-radius:var(--radius-md)">md</div>
+          <div class="radius-box" style="border-radius:var(--radius-lg)">lg</div>
+          <div class="radius-box" style="border-radius:var(--radius-xl)">xl</div>
+          <div class="radius-box" style="border-radius:var(--radius-2xl)">2xl</div>
+          <div class="radius-box" style="border-radius:var(--radius-full)">full</div>
+        </div>
+      </section>
+
+      <!-- Layout Tokens -->
+      <section class="ds-section" id="layout">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Layout Tokens</h2>
+          <p class="ds-section__description">Structural dimensions and breakpoints.</p>
+        </div>
+        <table class="token-table">
+          <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+          <tbody>
+            <tr><td><code>--sidebar-width</code></td><td>240px</td><td>Expanded sidebar</td></tr>
+            <tr><td><code>--sidebar-width-collapsed</code></td><td>56px</td><td>Collapsed sidebar</td></tr>
+            <tr><td><code>--topbar-height</code></td><td>48px</td><td>Top navigation bar</td></tr>
+            <tr><td><code>--kanban-column-width</code></td><td>280px</td><td>Kanban column</td></tr>
+            <tr><td><code>--breakpoint-md</code></td><td>768px</td><td>Tablet</td></tr>
+            <tr><td><code>--breakpoint-lg</code></td><td>1024px</td><td>Desktop</td></tr>
+            <tr><td><code>--z-modal</code></td><td>500</td><td>Modal layer</td></tr>
+            <tr><td><code>--duration-normal</code></td><td>200ms</td><td>Default transition</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ═══════════ COMPONENTS ═══════════ -->
+
+      <!-- Buttons -->
+      <section class="ds-section" id="buttons">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Buttons</h2>
+          <p class="ds-section__description">Primary actions, secondary actions, and icon buttons.</p>
+        </div>
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Variants</h3>
+          <div class="ds-demo ds-demo--inline">
+            <button class="btn btn--primary">Primary</button>
+            <button class="btn btn--secondary">Secondary</button>
+            <button class="btn btn--subtle">Subtle</button>
+            <button class="btn btn--danger">Danger</button>
+            <button class="btn btn--danger-subtle">Danger Subtle</button>
+            <button class="btn btn--link">Link Button</button>
+          </div>
+        </div>
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Sizes</h3>
+          <div class="ds-demo ds-demo--inline">
+            <button class="btn btn--primary btn--sm">Small</button>
+            <button class="btn btn--primary">Medium</button>
+            <button class="btn btn--primary btn--lg">Large</button>
+          </div>
+        </div>
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">States</h3>
+          <div class="ds-demo ds-demo--inline">
+            <button class="btn btn--primary" disabled>Disabled</button>
+            <button class="btn btn--primary btn--icon" aria-label="Add">+</button>
+            <div class="btn-group">
+              <button class="btn btn--secondary is-active">List</button>
+              <button class="btn btn--secondary">Board</button>
+              <button class="btn btn--secondary">Timeline</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Form Inputs -->
+      <section class="ds-section" id="inputs">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Form Inputs</h2>
+          <p class="ds-section__description">Text fields, selects, checkboxes, radios, and switches.</p>
+        </div>
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:repeat(2,1fr)">
+          <div class="form-field">
+            <label class="form-field__label">Issue Title</label>
+            <input type="text" class="input" placeholder="Enter issue title">
+            <span class="form-field__hint">Keep it concise and descriptive</span>
+          </div>
+          <div class="form-field is-error">
+            <label class="form-field__label">Assignee</label>
+            <input type="text" class="input" value="invalid@">
+            <span class="form-field__error">Please enter a valid email</span>
+          </div>
+          <div class="form-field">
+            <label class="form-field__label">Description</label>
+            <textarea class="input textarea" placeholder="Add a description..."></textarea>
+          </div>
+          <div class="form-field">
+            <label class="form-field__label">Priority</label>
+            <select class="input select">
+              <option>Highest</option>
+              <option>High</option>
+              <option selected>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <div class="search-input">
+            <span class="search-input__icon">&#128269;</span>
+            <input type="search" class="input" placeholder="Search issues...">
+          </div>
+          <div class="input-group">
+            <span class="input-group__addon">https://</span>
+            <input type="text" class="input" placeholder="link">
+          </div>
+        </div>
+        <div class="ds-demo ds-demo--inline mt-4">
+          <label class="checkbox"><input type="checkbox" checked> Notify watchers</label>
+          <label class="checkbox"><input type="checkbox"> Create another</label>
+          <label class="radio"><input type="radio" name="vis" checked> Public</label>
+          <label class="radio"><input type="radio" name="vis"> Private</label>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+            <span>Enable notifications</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- Badges & Tags -->
+      <section class="ds-section" id="badges">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Badges & Tags</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <span class="badge badge--default">Default</span>
+          <span class="badge badge--brand">Brand</span>
+          <span class="badge badge--success badge--dot">Success</span>
+          <span class="badge badge--warning">Warning</span>
+          <span class="badge badge--danger">Danger</span>
+          <span class="badge badge--info">Info</span>
+          <span class="badge badge--discovery">Discovery</span>
+          <span class="badge badge--outline">Outline</span>
+        </div>
+        <div class="ds-demo ds-demo--inline mt-4">
+          <span class="tag">frontend <button class="tag__remove">&times;</button></span>
+          <span class="tag">sprint-12 <button class="tag__remove">&times;</button></span>
+          <span class="chip">All Issues</span>
+          <span class="chip is-selected">My Issues</span>
+          <span class="chip">Unassigned</span>
+        </div>
+      </section>
+
+      <!-- Avatars -->
+      <section class="ds-section" id="avatars">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Avatars</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <span class="avatar avatar--xs">JD</span>
+          <span class="avatar avatar--sm">AK</span>
+          <span class="avatar avatar--md">MR</span>
+          <span class="avatar avatar--lg">SL</span>
+          <span class="avatar avatar--xl">TW</span>
+          <div class="avatar-group">
+            <span class="avatar avatar--sm">A</span>
+            <span class="avatar avatar--sm">B</span>
+            <span class="avatar avatar--sm">C</span>
+            <span class="avatar avatar--sm">+3</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cards -->
+      <section class="ds-section" id="cards">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Cards</h2>
+        </div>
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:repeat(2,1fr)">
+          <div class="card">
+            <div class="card__header"><h4 class="heading-5">Project Settings</h4></div>
+            <div class="card__body"><p class="text-secondary">Configure project permissions, workflows, and integrations.</p></div>
+            <div class="card__footer"><button class="btn btn--primary btn--sm">Save Changes</button></div>
+          </div>
+          <div class="card card--shadow card--interactive">
+            <div class="card__body">
+              <h4 class="heading-5 mb-2">Sprint Report</h4>
+              <p class="text-secondary">View velocity and burndown charts for the current sprint.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alerts & Toasts -->
+      <section class="ds-section" id="alerts">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Alerts & Toasts</h2>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <div class="alert alert--info">
+            <span class="alert__icon">&#8505;</span>
+            <div class="alert__content">
+              <div class="alert__title">Sprint starts tomorrow</div>
+              <p>Sprint 24 begins on June 6. Make sure all issues are estimated.</p>
+            </div>
+          </div>
+          <div class="alert alert--success">
+            <span class="alert__icon">&#10003;</span>
+            <div class="alert__content"><div class="alert__title">Issue created successfully</div><p>PROJ-456 has been created and assigned to John Doe.</p></div>
+          </div>
+          <div class="alert alert--warning">
+            <span class="alert__icon">&#9888;</span>
+            <div class="alert__content"><div class="alert__title">Approaching deadline</div><p>3 issues are due within 24 hours.</p></div>
+          </div>
+          <div class="alert alert--danger">
+            <span class="alert__icon">&#10007;</span>
+            <div class="alert__content"><div class="alert__title">Failed to save</div><p>Please check your connection and try again.</p><div class="alert__actions"><button class="btn btn--danger btn--sm">Retry</button></div></div>
+          </div>
+        </div>
+        <div class="ds-demo ds-demo--inline mt-4">
+          <div class="toast">
+            <span>&#10003;</span>
+            <div><strong>Changes saved</strong><p class="caption">Your preferences have been updated.</p></div>
+            <button class="toast__close">&times;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modals -->
+      <section class="ds-section" id="modals">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Modals & Drawers</h2>
+        </div>
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:1fr 1fr">
+          <div class="modal" style="position:relative;max-height:none">
+            <div class="modal__header"><h3 class="modal__title">Create Issue</h3><button class="btn btn--icon btn--subtle">&times;</button></div>
+            <div class="modal__body">
+              <div class="form-field mb-4"><label class="form-field__label">Summary</label><input class="input" placeholder="Issue summary"></div>
+              <div class="form-field"><label class="form-field__label">Type</label><select class="input select"><option>Story</option><option>Bug</option><option>Task</option></select></div>
+            </div>
+            <div class="modal__footer"><button class="btn btn--secondary">Cancel</button><button class="btn btn--primary">Create</button></div>
+          </div>
+          <div class="drawer" style="position:relative;height:300px">
+            <div class="drawer__header"><h3 class="heading-5">PROJ-123 Details</h3><button class="btn btn--icon btn--subtle">&times;</button></div>
+            <div class="drawer__body">
+              <p class="text-secondary mb-3">Implement user authentication flow with OAuth 2.0 support.</p>
+              <span class="status status--in-progress">In Progress</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dropdowns -->
+      <section class="ds-section" id="dropdowns">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Dropdowns & Menus</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <div class="dropdown">
+            <button class="btn btn--secondary">Actions &#9662;</button>
+            <div class="dropdown__menu" style="position:relative;display:block;margin-top:8px">
+              <button class="dropdown__item">Edit issue</button>
+              <button class="dropdown__item">Clone issue</button>
+              <button class="dropdown__item">Move to sprint</button>
+              <div class="dropdown__divider"></div>
+              <div class="dropdown__label">Danger Zone</div>
+              <button class="dropdown__item is-danger">Delete issue</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tooltips -->
+      <section class="ds-section" id="tooltips">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Tooltips</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <div class="tooltip">
+            <button class="btn btn--secondary">Hover me</button>
+            <span class="tooltip__content" style="opacity:1">Quick action tooltip</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabs -->
+      <section class="ds-section" id="tabs">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Tabs</h2>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <div class="tabs">
+            <button class="tab is-active">All Issues <span class="tab__count">42</span></button>
+            <button class="tab">Open <span class="tab__count">18</span></button>
+            <button class="tab">In Progress <span class="tab__count">12</span></button>
+            <button class="tab">Done <span class="tab__count">12</span></button>
+          </div>
+          <div class="tabs tabs--pills">
+            <button class="tab is-active">Board</button>
+            <button class="tab">List</button>
+            <button class="tab">Timeline</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Breadcrumbs -->
+      <section class="ds-section" id="breadcrumbs">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Breadcrumbs</h2>
+        </div>
+        <div class="ds-demo">
+          <nav class="breadcrumbs">
+            <span class="breadcrumbs__item"><a href="#">Projects</a><span class="breadcrumbs__separator">/</span></span>
+            <span class="breadcrumbs__item"><a href="#">Engineering</a><span class="breadcrumbs__separator">/</span></span>
+            <span class="breadcrumbs__item is-current">PROJ-123</span>
+          </nav>
+        </div>
+      </section>
+
+      <!-- Pagination -->
+      <section class="ds-section" id="pagination">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Pagination</h2>
+        </div>
+        <div class="ds-demo">
+          <div class="pagination">
+            <button class="pagination__btn" disabled>&laquo;</button>
+            <button class="pagination__btn is-active">1</button>
+            <button class="pagination__btn">2</button>
+            <button class="pagination__btn">3</button>
+            <span class="pagination__ellipsis">...</span>
+            <button class="pagination__btn">12</button>
+            <button class="pagination__btn">&raquo;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tables -->
+      <section class="ds-section" id="tables">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Tables</h2>
+        </div>
+        <div class="ds-demo" style="padding:0">
+          <div class="table-container" style="border:none">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="table__sortable">Key</th>
+                  <th class="table__sortable">Summary</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Assignee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-selected">
+                  <td><span class="issue-key">PROJ-123</span></td>
+                  <td>Implement OAuth authentication</td>
+                  <td><span class="status status--in-progress">In Progress</span></td>
+                  <td><span class="priority priority--high">&#9650; High</span></td>
+                  <td><span class="avatar avatar--sm">JD</span></td>
+                </tr>
+                <tr>
+                  <td><span class="issue-key">PROJ-124</span></td>
+                  <td>Fix login redirect bug</td>
+                  <td><span class="status status--todo">To Do</span></td>
+                  <td><span class="priority priority--highest">&#9650;&#9650; Highest</span></td>
+                  <td><span class="avatar avatar--sm">AK</span></td>
+                </tr>
+                <tr>
+                  <td><span class="issue-key">PROJ-125</span></td>
+                  <td>Update API documentation</td>
+                  <td><span class="status status--done">Done</span></td>
+                  <td><span class="priority priority--low">&#9660; Low</span></td>
+                  <td><span class="avatar avatar--sm">MR</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Progress & Loading -->
+      <section class="ds-section" id="progress">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Progress & Loading</h2>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <div>
+            <div class="progress-label"><span>Sprint Progress</span><span>68%</span></div>
+            <div class="progress"><div class="progress__bar" style="width:68%"></div></div>
+          </div>
+          <div>
+            <div class="progress-label"><span>Completed</span><span>100%</span></div>
+            <div class="progress progress--success"><div class="progress__bar" style="width:100%"></div></div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="spinner"></div>
+            <div class="spinner spinner--lg"></div>
+            <div class="flex flex-col gap-2" style="flex:1">
+              <div class="skeleton skeleton--text" style="width:80%"></div>
+              <div class="skeleton skeleton--text" style="width:60%"></div>
+              <div class="skeleton skeleton--text" style="width:40%"></div>
+            </div>
+            <div class="skeleton skeleton--avatar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dividers -->
+      <section class="ds-section" id="dividers">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Dividers</h2>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <p>Content above divider</p>
+          <hr class="divider">
+          <p>Content below divider</p>
+          <div class="divider divider--with-text">OR</div>
+          <p>More content</p>
+        </div>
+      </section>
+
+      <!-- Accordion -->
+      <section class="ds-section" id="accordion">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Accordion</h2>
+        </div>
+        <div class="ds-demo">
+          <div class="accordion">
+            <div class="accordion__item is-open">
+              <button class="accordion__trigger">Description <span class="accordion__icon">&#9662;</span></button>
+              <div class="accordion__content">Implement a complete OAuth 2.0 authentication flow supporting Google, GitHub, and Microsoft providers.</div>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Acceptance Criteria <span class="accordion__icon">&#9662;</span></button>
+            </div>
+            <div class="accordion__item">
+              <button class="accordion__trigger">Subtasks <span class="accordion__icon">&#9662;</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stepper -->
+      <section class="ds-section" id="stepper">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Stepper</h2>
+        </div>
+        <div class="ds-demo">
+          <div class="stepper">
+            <div class="stepper__step is-complete"><span class="stepper__indicator">&#10003;</span><span class="stepper__label">Details</span></div>
+            <div class="stepper__connector is-complete"></div>
+            <div class="stepper__step is-active"><span class="stepper__indicator">2</span><span class="stepper__label">Configuration</span></div>
+            <div class="stepper__connector"></div>
+            <div class="stepper__step"><span class="stepper__indicator">3</span><span class="stepper__label">Review</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Empty State -->
+      <section class="ds-section" id="empty-state">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Empty State</h2>
+        </div>
+        <div class="ds-demo">
+          <div class="empty-state">
+            <div class="empty-state__icon">&#128203;</div>
+            <h3 class="empty-state__title">No issues found</h3>
+            <p class="empty-state__description">Get started by creating your first issue or importing from another project.</p>
+            <button class="btn btn--primary">Create Issue</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation -->
+      <section class="ds-section" id="navigation">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Navigation</h2>
+        </div>
+        <div class="ds-demo" style="padding:0;height:360px;display:flex;flex-direction:column">
+          <div class="topbar">
+            <span class="topbar__logo">JRT</span>
+            <div class="topbar__search"><div class="search-input"><span class="search-input__icon">&#128269;</span><input class="input input--sm" placeholder="Search"></div></div>
+            <div class="topbar__actions">
+              <button class="btn btn--primary btn--sm">Create</button>
+              <span class="avatar avatar--sm">JD</span>
+            </div>
+          </div>
+          <div style="display:flex;flex:1;min-height:0">
+            <div class="sidebar" style="height:auto;width:200px">
+              <nav class="sidebar__nav">
+                <div class="sidebar__section">
+                  <div class="sidebar__section-title">Project</div>
+                  <a class="sidebar__item is-active"><span class="sidebar__item-icon">&#9632;</span> Board</a>
+                  <a class="sidebar__item"><span class="sidebar__item-icon">&#9776;</span> Backlog</a>
+                  <a class="sidebar__item"><span class="sidebar__item-icon">&#128200;</span> Reports</a>
+                </div>
+                <div class="sidebar__section">
+                  <div class="sidebar__section-title">Planning</div>
+                  <a class="sidebar__item"><span class="sidebar__item-icon">&#128197;</span> Roadmap</a>
+                  <a class="sidebar__item"><span class="sidebar__item-icon">&#9889;</span> Sprints</a>
+                </div>
+              </nav>
+            </div>
+            <div style="flex:1;background:var(--color-bg-secondary);padding:16px"><p class="text-secondary">Main content area</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page Header -->
+      <section class="ds-section" id="page-header">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Page Header</h2>
+        </div>
+        <div class="ds-demo" style="padding:0">
+          <div class="page-header">
+            <div class="page-header__top">
+              <div>
+                <nav class="breadcrumbs mb-2">
+                  <span class="breadcrumbs__item"><a href="#">Engineering</a><span class="breadcrumbs__separator">/</span></span>
+                  <span class="breadcrumbs__item is-current">Sprint 24</span>
+                </nav>
+                <h1 class="page-header__title">Sprint 24 — Authentication</h1>
+                <p class="page-header__subtitle">Jun 2 – Jun 16, 2026 · 12 issues · 68% complete</p>
+              </div>
+              <div class="page-header__actions">
+                <button class="btn btn--secondary">Complete Sprint</button>
+                <button class="btn btn--primary">Add Issue</button>
+              </div>
+            </div>
+            <div class="tabs">
+              <button class="tab is-active">Board</button>
+              <button class="tab">List</button>
+              <button class="tab">Reports</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ JIRA COMPONENTS ═══════════ -->
+
+      <!-- Issue Types -->
+      <section class="ds-section" id="issue-types">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Issue Types</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <span class="issue-type issue-type--epic"><span class="issue-type__icon"></span> Epic</span>
+          <span class="issue-type issue-type--story"><span class="issue-type__icon"></span> Story</span>
+          <span class="issue-type issue-type--task"><span class="issue-type__icon"></span> Task</span>
+          <span class="issue-type issue-type--bug"><span class="issue-type__icon"></span> Bug</span>
+          <span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span> Subtask</span>
+        </div>
+      </section>
+
+      <!-- Priorities -->
+      <section class="ds-section" id="priorities">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Priorities</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <span class="priority priority--highest">&#9650;&#9650; Highest</span>
+          <span class="priority priority--high">&#9650; High</span>
+          <span class="priority priority--medium">&#9650; Medium</span>
+          <span class="priority priority--low">&#9660; Low</span>
+          <span class="priority priority--lowest">&#9660;&#9660; Lowest</span>
+        </div>
+      </section>
+
+      <!-- Statuses -->
+      <section class="ds-section" id="statuses">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Statuses</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <span class="status status--todo">To Do</span>
+          <span class="status status--in-progress">In Progress</span>
+          <span class="status status--in-review">In Review</span>
+          <span class="status status--done">Done</span>
+          <span class="status status--blocked">Blocked</span>
+        </div>
+      </section>
+
+      <!-- Issue Cards -->
+      <section class="ds-section" id="issue-cards">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Issue Cards</h2>
+        </div>
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="issue-card">
+            <div class="issue-card__header">
+              <span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-123</span>
+              <span class="priority priority--high">&#9650;</span>
+            </div>
+            <div class="issue-card__title">Implement OAuth authentication flow</div>
+            <div class="issue-card__footer">
+              <span class="status status--in-progress">In Progress</span>
+              <div class="issue-card__meta"><span class="avatar avatar--xs">JD</span></div>
+            </div>
+          </div>
+          <div class="issue-card">
+            <div class="issue-card__header">
+              <span class="issue-type issue-type--bug"><span class="issue-type__icon"></span> PROJ-124</span>
+              <span class="priority priority--highest">&#9650;&#9650;</span>
+            </div>
+            <div class="issue-card__title">Fix login redirect loop on Safari</div>
+            <div class="issue-card__footer">
+              <span class="status status--todo">To Do</span>
+              <div class="issue-card__meta"><span class="avatar avatar--xs">AK</span></div>
+            </div>
+          </div>
+          <div class="issue-card">
+            <div class="issue-card__header">
+              <span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-125</span>
+              <span class="priority priority--low">&#9660;</span>
+            </div>
+            <div class="issue-card__title">Update API documentation</div>
+            <div class="issue-card__footer">
+              <span class="status status--done">Done</span>
+              <div class="issue-card__meta"><span class="avatar avatar--xs">MR</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kanban -->
+      <section class="ds-section" id="kanban">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Kanban Board</h2>
+        </div>
+        <div class="ds-demo" style="padding:0;overflow:hidden">
+          <div class="kanban">
+            <div class="kanban__column">
+              <div class="kanban__column-header">
+                <span class="kanban__column-title">To Do</span>
+                <span class="kanban__column-count">2</span>
+              </div>
+              <div class="kanban__column-body">
+                <div class="issue-card">
+                  <div class="issue-card__header"><span class="issue-type issue-type--bug"><span class="issue-type__icon"></span> PROJ-124</span><span class="priority priority--highest">&#9650;&#9650;</span></div>
+                  <div class="issue-card__title">Fix login redirect loop</div>
+                  <div class="issue-card__footer"><span class="avatar avatar--xs">AK</span></div>
+                </div>
+                <div class="issue-card">
+                  <div class="issue-card__header"><span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-126</span><span class="priority priority--medium">&#9650;</span></div>
+                  <div class="issue-card__title">Add password reset flow</div>
+                  <div class="issue-card__footer"><span class="avatar avatar--xs">SL</span></div>
+                </div>
+              </div>
+              <div class="kanban__add">+ Create issue</div>
+            </div>
+            <div class="kanban__column">
+              <div class="kanban__column-header">
+                <span class="kanban__column-title">In Progress</span>
+                <span class="kanban__column-count">1</span>
+              </div>
+              <div class="kanban__column-body">
+                <div class="issue-card">
+                  <div class="issue-card__header"><span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-123</span><span class="priority priority--high">&#9650;</span></div>
+                  <div class="issue-card__title">Implement OAuth authentication</div>
+                  <div class="issue-card__footer"><span class="avatar avatar--xs">JD</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban__column">
+              <div class="kanban__column-header">
+                <span class="kanban__column-title">In Review</span>
+                <span class="kanban__column-count">1</span>
+              </div>
+              <div class="kanban__column-body">
+                <div class="issue-card">
+                  <div class="issue-card__header"><span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-127</span><span class="priority priority--low">&#9660;</span></div>
+                  <div class="issue-card__title">Write unit tests for auth module</div>
+                  <div class="issue-card__footer"><span class="avatar avatar--xs">TW</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="kanban__column">
+              <div class="kanban__column-header">
+                <span class="kanban__column-title">Done</span>
+                <span class="kanban__column-count">1</span>
+              </div>
+              <div class="kanban__column-body">
+                <div class="issue-card">
+                  <div class="issue-card__header"><span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-125</span><span class="priority priority--low">&#9660;</span></div>
+                  <div class="issue-card__title">Update API documentation</div>
+                  <div class="issue-card__footer"><span class="avatar avatar--xs">MR</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sprint & Metrics -->
+      <section class="ds-section" id="sprint">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Sprint & Metrics</h2>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <div class="sprint-header">
+            <div class="sprint-header__info">
+              <div class="sprint-header__name">Sprint 24 — Authentication</div>
+              <div class="sprint-header__dates">Jun 2 – Jun 16, 2026 · 5 days remaining</div>
+            </div>
+            <div class="sprint-header__progress">
+              <div class="progress-label"><span>68% complete</span><span>8/12</span></div>
+              <div class="progress"><div class="progress__bar" style="width:68%"></div></div>
+            </div>
+            <button class="btn btn--primary">Complete Sprint</button>
+          </div>
+          <div class="grid grid-cols-4 gap-4">
+            <div class="metric-card">
+              <div class="metric-card__label">Open Issues</div>
+              <div class="metric-card__value">18</div>
+              <div class="metric-card__change metric-card__change--down">-3 from last week</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Velocity</div>
+              <div class="metric-card__value">42</div>
+              <div class="metric-card__change metric-card__change--up">+8 pts</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Blocked</div>
+              <div class="metric-card__value">2</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-card__label">Team Members</div>
+              <div class="metric-card__value">6</div>
+            </div>
+          </div>
+          <div>
+            <p class="label mb-2">Status Distribution</p>
+            <div class="stat-bar">
+              <div class="stat-bar__segment" style="width:25%;background:var(--color-status-todo)"></div>
+              <div class="stat-bar__segment" style="width:35%;background:var(--color-status-in-progress)"></div>
+              <div class="stat-bar__segment" style="width:15%;background:var(--color-status-in-review)"></div>
+              <div class="stat-bar__segment" style="width:25%;background:var(--color-status-done)"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity & Comments -->
+      <section class="ds-section" id="activity">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Activity & Comments</h2>
+        </div>
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:1fr 1fr">
+          <div>
+            <h4 class="heading-5 mb-4">Activity Timeline</h4>
+            <div class="timeline">
+              <div class="timeline__item">
+                <span class="timeline__avatar"><span class="avatar avatar--sm">JD</span></span>
+                <div class="timeline__content">
+                  <div class="timeline__header"><span class="timeline__author">John Doe</span><span class="timeline__time">2 hours ago</span></div>
+                  <div class="timeline__body">changed status from <span class="status status--todo">To Do</span> to <span class="status status--in-progress">In Progress</span></div>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <span class="timeline__avatar"><span class="avatar avatar--sm">AK</span></span>
+                <div class="timeline__content">
+                  <div class="timeline__header"><span class="timeline__author">Alice Kim</span><span class="timeline__time">5 hours ago</span></div>
+                  <div class="timeline__body">added comment: "LGTM, ready for review"</div>
+                </div>
+              </div>
+              <div class="timeline__item">
+                <span class="timeline__avatar"><span class="avatar avatar--sm">MR</span></span>
+                <div class="timeline__content">
+                  <div class="timeline__header"><span class="timeline__author">Mike Ross</span><span class="timeline__time">Yesterday</span></div>
+                  <div class="timeline__body">created this issue</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4 class="heading-5 mb-4">Comments</h4>
+            <div class="comment">
+              <span class="comment__avatar"><span class="avatar avatar--md">AK</span></span>
+              <div class="comment__body">
+                <div class="comment__header"><span class="comment__author">Alice Kim</span><span class="comment__time">5 hours ago</span></div>
+                <div class="comment__text">I've reviewed the OAuth implementation. The token refresh logic looks solid. One suggestion: add rate limiting on the token endpoint.</div>
+                <div class="comment__actions"><span class="comment__action">Reply</span><span class="comment__action">Edit</span><span class="comment__action">Delete</span></div>
+              </div>
+            </div>
+            <div class="comment-composer">
+              <span class="avatar avatar--md">JD</span>
+              <div class="comment-composer__input"><textarea class="input textarea" rows="2" placeholder="Add a comment..."></textarea></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters -->
+      <section class="ds-section" id="filters">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Filters</h2>
+        </div>
+        <div class="ds-demo" style="padding:0">
+          <div class="filter-bar">
+            <span class="filter-bar__label">Filter by:</span>
+            <span class="chip is-selected">All</span>
+            <span class="chip">Assignee: Me</span>
+            <span class="chip">Status: Open</span>
+            <span class="chip">Type: Bug</span>
+            <span class="chip">Priority: High+</span>
+            <button class="btn btn--subtle btn--sm ml-auto">Clear filters</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Command Palette -->
+      <section class="ds-section" id="command-palette">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Command Palette</h2>
+        </div>
+        <div class="ds-demo" style="display:flex;justify-content:center;padding:var(--space-10)">
+          <div class="command-palette" style="position:relative;top:auto;left:auto;transform:none">
+            <input class="command-palette__input" placeholder="Type a command or search..." value="create">
+            <div class="command-palette__results">
+              <div class="command-palette__group-label">Actions</div>
+              <div class="command-palette__item is-selected"><span>&#10133;</span> Create Issue <span class="command-palette__shortcut">C</span></div>
+              <div class="command-palette__item"><span>&#128194;</span> Create Project</div>
+              <div class="command-palette__group-label">Navigation</div>
+              <div class="command-palette__item"><span>&#9632;</span> Go to Board <span class="command-palette__shortcut">G B</span></div>
+              <div class="command-palette__item"><span>&#9776;</span> Go to Backlog <span class="command-palette__shortcut">G L</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lists & Tree -->
+      <section class="ds-section" id="lists">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Lists & Tree</h2>
+        </div>
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:1fr 1fr">
+          <div>
+            <div class="list-item is-selected">
+              <span class="list-item__icon">&#128193;</span>
+              <div class="list-item__content">
+                <div class="list-item__title">Engineering</div>
+                <div class="list-item__subtitle">24 active issues</div>
+              </div>
+              <div class="list-item__actions"><button class="btn btn--icon btn--sm btn--subtle">&#8942;</button></div>
+            </div>
+            <div class="list-item">
+              <span class="list-item__icon">&#128193;</span>
+              <div class="list-item__content">
+                <div class="list-item__title">Design</div>
+                <div class="list-item__subtitle">8 active issues</div>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="list-item__icon">&#128193;</span>
+              <div class="list-item__content">
+                <div class="list-item__title">Marketing</div>
+                <div class="list-item__subtitle">3 active issues</div>
+              </div>
+            </div>
+          </div>
+          <div class="tree">
+            <div class="tree__item"><span class="tree__toggle">&#9662;</span><span class="issue-type issue-type--epic"><span class="issue-type__icon"></span></span> Authentication Epic</div>
+            <div class="tree__children">
+              <div class="tree__item"><span class="tree__toggle"></span><span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span> PROJ-123 OAuth flow</div>
+              <div class="tree__item"><span class="tree__toggle">&#9662;</span><span class="issue-type issue-type--story"><span class="issue-type__icon"></span></span> PROJ-124 Login bug</div>
+              <div class="tree__children">
+                <div class="tree__item"><span class="tree__toggle"></span><span class="issue-type issue-type--subtask"><span class="issue-type__icon"></span></span> PROJ-128 Safari test</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- File Upload -->
+      <section class="ds-section" id="file-upload">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">File Upload & Attachments</h2>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <div class="file-upload">
+            <div class="file-upload__icon" style="font-size:32px">&#128206;</div>
+            <div class="file-upload__title">Drop files here or click to upload</div>
+            <div class="file-upload__hint">PNG, JPG, PDF up to 10MB</div>
+          </div>
+          <div class="attachment">
+            <span class="attachment__icon">&#128196;</span>
+            <div class="attachment__info">
+              <div class="attachment__name">oauth-flow-diagram.pdf</div>
+              <div class="attachment__size">2.4 MB · Added 2 hours ago</div>
+            </div>
+            <button class="btn btn--icon btn--sm btn--subtle">&times;</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Misc Components -->
+      <section class="ds-section" id="misc">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Additional Components</h2>
+        </div>
+        <div class="ds-demo ds-demo--inline">
+          <span class="inline-edit">Sprint 24 <span class="inline-edit__icon">&#9998;</span></span>
+          <span class="kbd">Ctrl</span> + <span class="kbd">K</span>
+          <span class="kbd">G</span> <span class="kbd">B</span>
+        </div>
+      </section>
+
+      <!-- App Preview -->
+      <section class="ds-section" id="app-preview">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Full App Preview</h2>
+          <p class="ds-section__description">Composed layout using multiple design system components.</p>
+        </div>
+        <div class="preview-app">
+          <div class="preview-app__sidebar">
+            <div class="sidebar" style="height:100%;width:100%">
+              <div class="sidebar__header"><span class="topbar__logo">JRT</span></div>
+              <nav class="sidebar__nav">
+                <div class="sidebar__section">
+                  <div class="sidebar__section-title">Engineering</div>
+                  <a class="sidebar__item is-active"><span class="sidebar__item-icon">&#9632;</span> Board</a>
+                  <a class="sidebar__item"><span class="sidebar__item-icon">&#9776;</span> Backlog</a>
+                  <a class="sidebar__item"><span class="sidebar__item-icon">&#128200;</span> Reports</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="preview-app__main">
+            <div class="topbar">
+              <div class="topbar__search"><div class="search-input"><span class="search-input__icon">&#128269;</span><input class="input input--sm" placeholder="Search issues..."></div></div>
+              <div class="topbar__actions">
+                <button class="btn btn--primary btn--sm">Create</button>
+                <span class="avatar avatar--sm">JD</span>
+              </div>
+            </div>
+            <div class="page-header" style="padding:var(--space-4)">
+              <div class="page-header__top" style="margin-bottom:var(--space-2)">
+                <div>
+                  <h1 class="heading-4">Sprint 24 Board</h1>
+                  <p class="caption">8 of 12 issues complete</p>
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn--secondary btn--sm is-active">Board</button>
+                  <button class="btn btn--secondary btn--sm">List</button>
+                </div>
+              </div>
+            </div>
+            <div class="preview-app__content">
+              <div class="kanban" style="min-height:300px">
+                <div class="kanban__column">
+                  <div class="kanban__column-header"><span class="kanban__column-title">To Do</span><span class="kanban__column-count">1</span></div>
+                  <div class="kanban__column-body">
+                    <div class="issue-card">
+                      <div class="issue-card__header"><span class="issue-type issue-type--bug"><span class="issue-type__icon"></span> PROJ-124</span></div>
+                      <div class="issue-card__title">Fix login redirect</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="kanban__column">
+                  <div class="kanban__column-header"><span class="kanban__column-title">In Progress</span><span class="kanban__column-count">1</span></div>
+                  <div class="kanban__column-body">
+                    <div class="issue-card">
+                      <div class="issue-card__header"><span class="issue-type issue-type--story"><span class="issue-type__icon"></span> PROJ-123</span></div>
+                      <div class="issue-card__title">OAuth authentication</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="kanban__column">
+                  <div class="kanban__column-header"><span class="kanban__column-title">Done</span><span class="kanban__column-count">1</span></div>
+                  <div class="kanban__column-body">
+                    <div class="issue-card">
+                      <div class="issue-card__header"><span class="issue-type issue-type--task"><span class="issue-type__icon"></span> PROJ-125</span></div>
+                      <div class="issue-card__title">Update docs</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sample Pages -->
+      <section class="ds-section" id="sample-pages">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Sample Application Pages</h2>
+          <p class="ds-section__description">
+            Five fully composed pages built entirely with this design system — demonstrating real JIRA-like views
+            including a complete kanban board, backlog, issue detail, sprint reports, and project dashboard.
+          </p>
+        </div>
+
+        <div class="ds-demo ds-demo--grid" style="grid-template-columns:repeat(2,1fr);gap:var(--space-4)">
+          <a href="pages/project-dashboard.html" class="card card--interactive card--shadow" style="text-decoration:none;color:inherit">
+            <div class="card__body">
+              <div class="flex items-center gap-3 mb-3">
+                <span style="width:48px;height:48px;background:var(--color-brand-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:24px">&#127968;</span>
+                <div>
+                  <h3 class="heading-4">Project Dashboard</h3>
+                  <span class="caption">Home / workspace overview</span>
+                </div>
+              </div>
+              <p class="text-secondary text-sm">Welcome screen with metrics, my work list, recent activity, and project cards with sprint progress.</p>
+            </div>
+            <div class="card__footer">
+              <span class="link">Open page →</span>
+            </div>
+          </a>
+
+          <a href="pages/kanban-board.html" class="card card--interactive card--shadow" style="text-decoration:none;color:inherit">
+            <div class="card__body">
+              <div class="flex items-center gap-3 mb-3">
+                <span style="width:48px;height:48px;background:var(--color-brand-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:24px">&#9632;</span>
+                <div>
+                  <h3 class="heading-4">Kanban Board</h3>
+                  <span class="caption">Sprint board view</span>
+                </div>
+              </div>
+              <p class="text-secondary text-sm">Full 4-column kanban board with 12 issues, filters, sprint header, quick filters, and issue cards with assignees and labels.</p>
+            </div>
+            <div class="card__footer">
+              <span class="link">Open page →</span>
+            </div>
+          </a>
+
+          <a href="pages/backlog.html" class="card card--interactive card--shadow" style="text-decoration:none;color:inherit">
+            <div class="card__body">
+              <div class="flex items-center gap-3 mb-3">
+                <span style="width:48px;height:48px;background:var(--color-info-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:24px">&#9776;</span>
+                <div>
+                  <h3 class="heading-4">Backlog</h3>
+                  <span class="caption">Issue list view</span>
+                </div>
+              </div>
+              <p class="text-secondary text-sm">Sortable issue table with bulk actions, filters, checkboxes, pagination, and epics/stories/bugs across sprints.</p>
+            </div>
+            <div class="card__footer">
+              <span class="link">Open page →</span>
+            </div>
+          </a>
+
+          <a href="pages/issue-detail.html" class="card card--interactive card--shadow" style="text-decoration:none;color:inherit">
+            <div class="card__body">
+              <div class="flex items-center gap-3 mb-3">
+                <span style="width:48px;height:48px;background:var(--color-discovery-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:24px">&#128196;</span>
+                <div>
+                  <h3 class="heading-4">Issue Detail</h3>
+                  <span class="caption">PROJ-123 single issue view</span>
+                </div>
+              </div>
+              <p class="text-secondary text-sm">Two-column layout with description, subtasks, attachments, comments, and a details sidebar with status, assignee, labels, and watchers.</p>
+            </div>
+            <div class="card__footer">
+              <span class="link">Open page →</span>
+            </div>
+          </a>
+
+          <a href="pages/sprint-dashboard.html" class="card card--interactive card--shadow" style="text-decoration:none;color:inherit;grid-column:1/-1;max-width:50%">
+            <div class="card__body">
+              <div class="flex items-center gap-3 mb-3">
+                <span style="width:48px;height:48px;background:var(--color-success-50);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:24px">&#128200;</span>
+                <div>
+                  <h3 class="heading-4">Sprint Reports</h3>
+                  <span class="caption">Analytics & sprint dashboard</span>
+                </div>
+              </div>
+              <p class="text-secondary text-sm">Sprint metrics, burndown chart, status distribution, team workload, velocity trend, and sprint history with progress bars.</p>
+            </div>
+            <div class="card__footer">
+              <span class="link">Open page →</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="alert alert--info mt-6">
+          <span class="alert__icon">&#8505;</span>
+          <div class="alert__content">
+            <div class="alert__title">Cross-linked navigation</div>
+            <p>All sample pages share a consistent app shell (sidebar + topbar) and link to each other. Each page includes a footer link back to this design system.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Figma MCP Readiness -->
+      <section class="ds-section" id="figma-mcp">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Figma MCP Conversion</h2>
+          <p class="ds-section__description">
+            Design system is prepared for Figma MCP import. Token export, build order, Code Connect stubs, icon SVGs, and import scripts are ready.
+          </p>
+        </div>
+        <div class="ds-demo ds-demo--stack">
+          <table class="token-table">
+            <thead><tr><th>File</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>tokens.json</code></td><td>Machine-readable token export (colors, spacing, typography, shadows)</td></tr>
+              <tr><td><code>figma.config.json</code></td><td>Code Connect configuration for HTML/CSS</td></tr>
+              <tr><td><code>figma/component-build-order.json</code></td><td>Prioritized 42-component build plan (8 tiers)</td></tr>
+              <tr><td><code>figma/component-variants.json</code></td><td>CSS class → Figma variant property mapping</td></tr>
+              <tr><td><code>figma/mcp-session-plan.json</code></td><td>Session-by-session MCP execution plan</td></tr>
+              <tr><td><code>figma/scripts/phase1*.js</code></td><td>use_figma scripts for token import (Phases 1a–1d)</td></tr>
+              <tr><td><code>figma/code-connect/*.figma.ts</code></td><td>Code Connect stubs (Button, Badge, Status, Input, IssueCard)</td></tr>
+              <tr><td><code>icons/*.svg</code></td><td>14 SVG icons replacing emoji for Figma upload</td></tr>
+            </tbody>
+          </table>
+          <div class="alert alert--success">
+            <span class="alert__icon">&#10003;</span>
+            <div class="alert__content">
+              <div class="alert__title">Ready for Session 1</div>
+              <p>Next step: Run Figma MCP <code>create_new_file</code> → execute <code>figma/scripts/phase1-import-tokens.js</code> via <code>use_figma</code>. Update <code>FIGMA_FILE_KEY</code> in figma.config.json after file creation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button class="btn btn--secondary theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    Toggle Dark Mode
+  </button>
+
+  <script src="js/showcase.js"></script>
+  <script>
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    });
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('.ds-section[id]');
+    const navLinks = document.querySelectorAll('.ds-nav__link');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('is-active'));
+          const active = document.querySelector(`.ds-nav__link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
