@@ -1,6 +1,13 @@
 /**
- * Icon system — replaces emoji/HTML entities for Figma compatibility
- * Usage: <span class="icon icon--md"><img src="icons/search.svg" alt=""></span>
+ * Icon system — SVG stroke icons with themeable color via CSS mask glyphs.
+ *
+ * Preferred (themeable):
+ *   <span class="icon icon--md icon--brand" aria-hidden="true">
+ *     <span class="icon-glyph icon-glyph--search"></span>
+ *   </span>
+ *
+ * Alternative (static img):
+ *   <span class="icon icon--md"><img src="icons/search.svg" alt=""></span>
  */
 
 .icon {
@@ -18,10 +25,98 @@
   display: block;
 }
 
+.icon-glyph {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* Sizes */
+.icon--xs { width: 12px; height: 12px; }
 .icon--sm { width: 16px; height: 16px; }
 .icon--md { width: 20px; height: 20px; }
 .icon--lg { width: 24px; height: 24px; }
+.icon--xl { width: 32px; height: 32px; }
 
+/* Semantic colors */
 .icon--subtle { color: var(--color-icon-subtle); }
 .icon--brand { color: var(--color-icon-brand); }
 .icon--inverse { color: var(--color-icon-inverse); }
+.icon--success { color: var(--color-success-500); }
+.icon--warning { color: var(--color-warning-500); }
+.icon--danger { color: var(--color-danger-500); }
+.icon--info { color: var(--color-info-500); }
+
+/* Issue type colors */
+.icon--epic { color: var(--color-issue-epic); }
+.icon--story { color: var(--color-issue-story); }
+.icon--task { color: var(--color-issue-task); }
+.icon--bug { color: var(--color-issue-bug); }
+.icon--subtask-type { color: var(--color-issue-subtask); }
+
+/* Glyph registry */
+.icon-glyph--search { mask-image: url('../icons/search.svg'); -webkit-mask-image: url('../icons/search.svg'); }
+.icon-glyph--home { mask-image: url('../icons/home.svg'); -webkit-mask-image: url('../icons/home.svg'); }
+.icon-glyph--menu { mask-image: url('../icons/menu.svg'); -webkit-mask-image: url('../icons/menu.svg'); }
+.icon-glyph--chevron-up { mask-image: url('../icons/chevron-up.svg'); -webkit-mask-image: url('../icons/chevron-up.svg'); }
+.icon-glyph--chevron-down { mask-image: url('../icons/chevron-down.svg'); -webkit-mask-image: url('../icons/chevron-down.svg'); }
+.icon-glyph--external-link { mask-image: url('../icons/external-link.svg'); -webkit-mask-image: url('../icons/external-link.svg'); }
+.icon-glyph--plus { mask-image: url('../icons/plus.svg'); -webkit-mask-image: url('../icons/plus.svg'); }
+.icon-glyph--close { mask-image: url('../icons/close.svg'); -webkit-mask-image: url('../icons/close.svg'); }
+.icon-glyph--edit { mask-image: url('../icons/edit.svg'); -webkit-mask-image: url('../icons/edit.svg'); }
+.icon-glyph--trash { mask-image: url('../icons/trash.svg'); -webkit-mask-image: url('../icons/trash.svg'); }
+.icon-glyph--check { mask-image: url('../icons/check.svg'); -webkit-mask-image: url('../icons/check.svg'); }
+.icon-glyph--refresh { mask-image: url('../icons/refresh.svg'); -webkit-mask-image: url('../icons/refresh.svg'); }
+.icon-glyph--filter { mask-image: url('../icons/filter.svg'); -webkit-mask-image: url('../icons/filter.svg'); }
+.icon-glyph--more-horizontal { mask-image: url('../icons/more-horizontal.svg'); -webkit-mask-image: url('../icons/more-horizontal.svg'); }
+.icon-glyph--attachment { mask-image: url('../icons/attachment.svg'); -webkit-mask-image: url('../icons/attachment.svg'); }
+.icon-glyph--document { mask-image: url('../icons/document.svg'); -webkit-mask-image: url('../icons/document.svg'); }
+.icon-glyph--list { mask-image: url('../icons/list.svg'); -webkit-mask-image: url('../icons/list.svg'); }
+.icon-glyph--board { mask-image: url('../icons/board.svg'); -webkit-mask-image: url('../icons/board.svg'); }
+.icon-glyph--chart { mask-image: url('../icons/chart.svg'); -webkit-mask-image: url('../icons/chart.svg'); }
+.icon-glyph--clipboard { mask-image: url('../icons/clipboard.svg'); -webkit-mask-image: url('../icons/clipboard.svg'); }
+.icon-glyph--folder { mask-image: url('../icons/folder.svg'); -webkit-mask-image: url('../icons/folder.svg'); }
+.icon-glyph--bell { mask-image: url('../icons/bell.svg'); -webkit-mask-image: url('../icons/bell.svg'); }
+.icon-glyph--user { mask-image: url('../icons/user.svg'); -webkit-mask-image: url('../icons/user.svg'); }
+.icon-glyph--users { mask-image: url('../icons/users.svg'); -webkit-mask-image: url('../icons/users.svg'); }
+.icon-glyph--settings { mask-image: url('../icons/settings.svg'); -webkit-mask-image: url('../icons/settings.svg'); }
+.icon-glyph--priority-up { mask-image: url('../icons/priority-up.svg'); -webkit-mask-image: url('../icons/priority-up.svg'); }
+.icon-glyph--priority-down { mask-image: url('../icons/priority-down.svg'); -webkit-mask-image: url('../icons/priority-down.svg'); }
+.icon-glyph--info { mask-image: url('../icons/info.svg'); -webkit-mask-image: url('../icons/info.svg'); }
+.icon-glyph--warning { mask-image: url('../icons/warning.svg'); -webkit-mask-image: url('../icons/warning.svg'); }
+.icon-glyph--error { mask-image: url('../icons/error.svg'); -webkit-mask-image: url('../icons/error.svg'); }
+.icon-glyph--epic { mask-image: url('../icons/epic.svg'); -webkit-mask-image: url('../icons/epic.svg'); }
+.icon-glyph--story { mask-image: url('../icons/story.svg'); -webkit-mask-image: url('../icons/story.svg'); }
+.icon-glyph--task { mask-image: url('../icons/task.svg'); -webkit-mask-image: url('../icons/task.svg'); }
+.icon-glyph--bug { mask-image: url('../icons/bug.svg'); -webkit-mask-image: url('../icons/bug.svg'); }
+.icon-glyph--subtask { mask-image: url('../icons/subtask.svg'); -webkit-mask-image: url('../icons/subtask.svg'); }
+.icon-glyph--sprint { mask-image: url('../icons/sprint.svg'); -webkit-mask-image: url('../icons/sprint.svg'); }
+.icon-glyph--calendar { mask-image: url('../icons/calendar.svg'); -webkit-mask-image: url('../icons/calendar.svg'); }
+
+.sidebar__item-icon .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.alert__icon .icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn--lg .icon {
+  width: 20px;
+  height: 20px;
+}

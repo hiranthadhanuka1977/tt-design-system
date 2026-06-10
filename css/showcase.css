@@ -419,6 +419,71 @@
   background: var(--color-bg-secondary);
 }
 
+/* Iconography showcase */
+.icon-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-3);
+}
+
+.icon-grid__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-2);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-primary);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) var(--ease-default),
+              background var(--duration-fast) var(--ease-default);
+}
+
+.icon-grid__item:hover {
+  border-color: var(--color-brand-300);
+  background: var(--color-bg-hover);
+}
+
+.icon-grid__item.is-hidden {
+  display: none;
+}
+
+.icon-grid__name {
+  font-size: var(--font-size-2xs);
+  font-family: var(--font-family-mono);
+  color: var(--color-text-secondary);
+  text-align: center;
+  word-break: break-word;
+}
+
+.icon-grid__id {
+  font-size: var(--font-size-2xs);
+  font-family: var(--font-family-mono);
+  color: var(--color-text-tertiary);
+}
+
+.icon-size-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 64px;
+}
+
+.icon-size-demo__label {
+  font-size: var(--font-size-2xs);
+  font-family: var(--font-family-mono);
+  color: var(--color-text-tertiary);
+}
+
 @media (max-width: 1024px) {
   .ds-sidebar {
     display: none;

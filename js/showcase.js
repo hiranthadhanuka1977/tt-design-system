@@ -213,6 +213,59 @@
     return block;
   }
 
+  function initIconography() {
+    var grid = document.getElementById('icon-grid');
+    if (!grid) {
+      return;
+    }
+
+    fetch('icons/manifest.json')
+      .then(function (res) { return res.json(); })
+      .then(function (manifest) {
+        manifest.icons.forEach(function (icon) {
+          var item = document.createElement('button');
+          item.type = 'button';
+          item.className = 'icon-grid__item';
+          item.dataset.category = icon.category;
+          item.title = 'Click to copy class name';
+          item.innerHTML =
+            '<span class="icon icon--lg" aria-hidden="true">' +
+              '<span class="icon-glyph icon-glyph--' + icon.id + '"></span>' +
+            '</span>' +
+            '<span class="icon-grid__name">' + icon.name + '</span>' +
+            '<span class="icon-grid__id">icon-glyph--' + icon.id + '</span>';
+
+          item.addEventListener('click', function () {
+            var className = 'icon-glyph--' + icon.id;
+            navigator.clipboard.writeText(className).then(function () {
+              item.style.borderColor = 'var(--color-success-500)';
+              setTimeout(function () {
+                item.style.borderColor = '';
+              }, 800);
+            });
+          });
+
+          grid.appendChild(item);
+        });
+
+        var filters = document.querySelectorAll('[data-icon-filter]');
+        filters.forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            var category = chip.dataset.iconFilter;
+            filters.forEach(function (c) { c.classList.remove('is-selected'); });
+            chip.classList.add('is-selected');
+            grid.querySelectorAll('.icon-grid__item').forEach(function (el) {
+              var show = category === 'all' || el.dataset.category === category;
+              el.classList.toggle('is-hidden', !show);
+            });
+          });
+        });
+      })
+      .catch(function () {
+        grid.innerHTML = '<p class="text-secondary">Could not load icons/manifest.json. Serve via a local HTTP server.</p>';
+      });
+  }
+
   function initMarkupSections() {
     document.querySelectorAll('.ds-section[id]').forEach(function (section) {
       if (SKIP_SECTIONS[section.id]) {
@@ -242,9 +295,14 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initMarkupSections);
-  } else {
+  function bootShowcase() {
+    initIconography();
     initMarkupSections();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootShowcase);
+  } else {
+    bootShowcase();
   }
 })();

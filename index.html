@@ -23,6 +23,7 @@
           <a href="#shadows" class="ds-nav__link">Shadows</a>
           <a href="#radius" class="ds-nav__link">Border Radius</a>
           <a href="#layout" class="ds-nav__link">Layout Tokens</a>
+          <a href="#iconography" class="ds-nav__link">Iconography</a>
         </div>
         <div class="ds-nav__group">
           <div class="ds-nav__label">Components</div>
@@ -262,6 +263,160 @@
             <tr><td><code>--duration-normal</code></td><td>200ms</td><td>Default transition</td></tr>
           </tbody>
         </table>
+      </section>
+
+      <!-- Iconography -->
+      <section class="ds-section" id="iconography">
+        <div class="ds-section__header">
+          <h2 class="ds-section__title">Iconography</h2>
+          <p class="ds-section__description">
+            37 stroke-based SVG icons in a consistent 24×24 grid. Icons inherit color from
+            <code>currentColor</code> via CSS mask glyphs — swap semantic color classes without editing SVG files.
+            Source manifest: <code>icons/manifest.json</code>.
+          </p>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Icon Library</h3>
+          <div class="icon-filter-bar">
+            <span class="chip is-selected" data-icon-filter="all">All</span>
+            <span class="chip" data-icon-filter="navigation">Navigation</span>
+            <span class="chip" data-icon-filter="actions">Actions</span>
+            <span class="chip" data-icon-filter="content">Content</span>
+            <span class="chip" data-icon-filter="communication">Communication</span>
+            <span class="chip" data-icon-filter="user">User</span>
+            <span class="chip" data-icon-filter="priority">Priority</span>
+            <span class="chip" data-icon-filter="status">Status</span>
+            <span class="chip" data-icon-filter="jira">JIRA</span>
+          </div>
+          <div id="icon-grid" class="icon-grid" aria-live="polite"></div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Sizes</h3>
+          <div class="ds-demo ds-demo--inline">
+            <div class="icon-size-demo">
+              <span class="icon icon--xs"><span class="icon-glyph icon-glyph--search"></span></span>
+              <span class="icon-size-demo__label">xs · 12px</span>
+            </div>
+            <div class="icon-size-demo">
+              <span class="icon icon--sm"><span class="icon-glyph icon-glyph--search"></span></span>
+              <span class="icon-size-demo__label">sm · 16px</span>
+            </div>
+            <div class="icon-size-demo">
+              <span class="icon icon--md"><span class="icon-glyph icon-glyph--search"></span></span>
+              <span class="icon-size-demo__label">md · 20px</span>
+            </div>
+            <div class="icon-size-demo">
+              <span class="icon icon--lg"><span class="icon-glyph icon-glyph--search"></span></span>
+              <span class="icon-size-demo__label">lg · 24px</span>
+            </div>
+            <div class="icon-size-demo">
+              <span class="icon icon--xl"><span class="icon-glyph icon-glyph--search"></span></span>
+              <span class="icon-size-demo__label">xl · 32px</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Colors</h3>
+          <div class="ds-demo ds-demo--inline">
+            <span class="icon icon--lg"><span class="icon-glyph icon-glyph--bell"></span></span>
+            <span class="icon icon--lg icon--subtle"><span class="icon-glyph icon-glyph--bell"></span></span>
+            <span class="icon icon--lg icon--brand"><span class="icon-glyph icon-glyph--bell"></span></span>
+            <span class="icon icon--lg icon--success"><span class="icon-glyph icon-glyph--check"></span></span>
+            <span class="icon icon--lg icon--warning"><span class="icon-glyph icon-glyph--warning"></span></span>
+            <span class="icon icon--lg icon--danger"><span class="icon-glyph icon-glyph--error"></span></span>
+            <span class="icon icon--lg icon--info"><span class="icon-glyph icon-glyph--info"></span></span>
+            <span class="icon icon--lg icon--epic"><span class="icon-glyph icon-glyph--epic"></span></span>
+            <span class="icon icon--lg icon--story"><span class="icon-glyph icon-glyph--story"></span></span>
+            <span class="icon icon--lg icon--task"><span class="icon-glyph icon-glyph--task"></span></span>
+            <span class="icon icon--lg icon--bug"><span class="icon-glyph icon-glyph--bug"></span></span>
+          </div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Usage in Context</h3>
+          <div class="ds-demo ds-demo--stack">
+            <div class="flex items-center gap-3 flex-wrap">
+              <button class="btn btn--primary">
+                <span class="icon" aria-hidden="true"><span class="icon-glyph icon-glyph--plus"></span></span>
+                Create Issue
+              </button>
+              <button class="btn btn--secondary btn--icon" aria-label="Notifications">
+                <span class="icon"><span class="icon-glyph icon-glyph--bell"></span></span>
+              </button>
+              <button class="btn btn--subtle btn--icon" aria-label="Settings">
+                <span class="icon"><span class="icon-glyph icon-glyph--settings"></span></span>
+              </button>
+            </div>
+            <div class="search-input" style="max-width:320px">
+              <span class="search-input__icon icon icon--sm icon--subtle" aria-hidden="true">
+                <span class="icon-glyph icon-glyph--search"></span>
+              </span>
+              <input type="search" class="input" placeholder="Search issues...">
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <a class="sidebar__item is-active" style="width:auto;display:inline-flex">
+                <span class="sidebar__item-icon icon" aria-hidden="true"><span class="icon-glyph icon-glyph--board"></span></span>
+                Board
+              </a>
+              <a class="sidebar__item" style="width:auto;display:inline-flex">
+                <span class="sidebar__item-icon icon" aria-hidden="true"><span class="icon-glyph icon-glyph--list"></span></span>
+                Backlog
+              </a>
+              <a class="sidebar__item" style="width:auto;display:inline-flex">
+                <span class="sidebar__item-icon icon" aria-hidden="true"><span class="icon-glyph icon-glyph--chart"></span></span>
+                Reports
+              </a>
+            </div>
+            <div class="alert alert--info">
+              <span class="alert__icon icon icon--info" aria-hidden="true"><span class="icon-glyph icon-glyph--info"></span></span>
+              <div class="alert__content">
+                <div class="alert__title">Sprint starts tomorrow</div>
+                <p>Icons in alerts use semantic color classes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Implementation</h3>
+          <table class="token-table">
+            <thead><tr><th>Pattern</th><th>When to use</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><code>.icon-glyph--{name}</code></td>
+                <td>Default — themeable via <code>color</code> on parent <code>.icon</code></td>
+              </tr>
+              <tr>
+                <td><code>&lt;img src="icons/…"&gt;</code></td>
+                <td>Static contexts; color fixed to SVG stroke</td>
+              </tr>
+              <tr>
+                <td><code>aria-hidden="true"</code></td>
+                <td>Decorative icons paired with visible text</td>
+              </tr>
+              <tr>
+                <td><code>aria-label</code> on button</td>
+                <td>Icon-only buttons (required for accessibility)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ds-subsection">
+          <h3 class="ds-subsection__title">Icon Tokens</h3>
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Usage</th></tr></thead>
+            <tbody>
+              <tr><td><code>--color-icon-default</code></td><td>Default icon color</td></tr>
+              <tr><td><code>--color-icon-subtle</code></td><td>Secondary / placeholder icons</td></tr>
+              <tr><td><code>--color-icon-brand</code></td><td>Brand-accent icons</td></tr>
+              <tr><td><code>--color-icon-inverse</code></td><td>Icons on dark backgrounds</td></tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <!-- ═══════════ COMPONENTS ═══════════ -->

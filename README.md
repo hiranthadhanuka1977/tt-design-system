@@ -11,6 +11,7 @@ A complete **HTML/CSS design system** for building JIRA-style project management
 ## Features
 
 - **Design tokens** — colors, typography, spacing, radius, shadows, and layout variables with light/dark mode
+- **Iconography** — 37 stroke SVG icons with CSS mask glyphs, sizes, semantic colors, and JIRA issue-type icons
 - **Component library** — buttons, inputs, cards, modals, tables, navigation, and more
 - **JIRA domain components** — issue types, priorities, statuses, issue cards, kanban columns, sprint metrics, comments
 - **Interactive showcase** — every component demo includes copyable **HTML** and **Next.js (JSX)** markup tabs
@@ -80,12 +81,13 @@ The showcase generates ready-to-copy Next.js component snippets on every demo (s
 │   ├── components.css      # All UI components
 │   ├── utilities.css       # Layout utility classes
 │   ├── showcase.css        # Showcase page layout
+│   ├── icons.css           # Icon system (mask glyphs, sizes, colors)
 │   ├── app.css             # App shell (sidebar, topbar)
 │   ├── pages.css           # Sample page styles
 │   └── main.css            # Entry point (@import bundle)
 ├── pages/                  # Five sample application pages
-├── js/showcase.js          # HTML + Next.js markup tabs
-├── icons/                  # 14 SVG icons
+├── js/showcase.js          # HTML + Next.js markup tabs, icon grid loader
+├── icons/                  # 37 SVG icons + manifest.json
 └── figma/
     ├── mcp-session-plan.json
     ├── component-build-order.json
@@ -110,6 +112,46 @@ Tokens live in [`css/tokens.css`](css/tokens.css) and are exported to [`tokens.j
 | Layout | `--sidebar-width`, `--topbar-height`, `--kanban-column-width` |
 
 Toggle dark mode by setting `data-theme="dark"` on the `<html>` element (the showcase includes a toggle button).
+
+---
+
+## Iconography
+
+Icons live in [`icons/`](icons/) with a machine-readable catalog in [`icons/manifest.json`](icons/manifest.json). Styles are in [`css/icons.css`](css/icons.css).
+
+### Basic usage
+
+Wrap a glyph in an `.icon` container. Glyphs use CSS masks so they inherit `currentColor`:
+
+```html
+<span class="icon icon--md icon--subtle" aria-hidden="true">
+  <span class="icon-glyph icon-glyph--search"></span>
+</span>
+```
+
+Icon-only buttons need an `aria-label`:
+
+```html
+<button class="btn btn--secondary btn--icon" aria-label="Notifications">
+  <span class="icon"><span class="icon-glyph icon-glyph--bell"></span></span>
+</button>
+```
+
+### Sizes and colors
+
+| Size class | Dimensions |
+|------------|------------|
+| `.icon--xs` | 12px |
+| `.icon--sm` | 16px |
+| `.icon--md` | 20px (default) |
+| `.icon--lg` | 24px |
+| `.icon--xl` | 32px |
+
+Color modifiers: `.icon--subtle`, `.icon--brand`, `.icon--success`, `.icon--warning`, `.icon--danger`, `.icon--info`, plus JIRA issue-type colors (`.icon--epic`, `.icon--story`, `.icon--task`, `.icon--bug`).
+
+### Categories
+
+Navigation, actions, content, communication, user, priority, status, and JIRA (issue types + sprint). Browse the full library in the showcase under **Foundation → Iconography** — click any icon to copy its glyph class name.
 
 ---
 
@@ -180,6 +222,7 @@ Ensure `FIGMA_FILE_KEY` in [`figma.config.json`](figma.config.json) matches your
 | Tokens | `tokens.css` | Variables only |
 | Reset / base | `reset.css`, `base.css` | Normalize and element defaults |
 | Components | `components.css` | BEM component styles |
+| Icons | `icons.css` | Mask glyphs, sizes, semantic colors |
 | Utilities | `utilities.css` | Small helper classes (`flex`, `gap-4`, …) |
 | App / pages | `app.css`, `pages.css` | Composed layouts for sample app |
 
