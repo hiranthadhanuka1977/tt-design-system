@@ -31,35 +31,97 @@
       .join('');
   }
 
-  function formatHtml(html) {
+  function escapeAttr(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function escapeText(value) {
+    return String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  function isVoidTag(tag) {
+    return VOID_TAGS.indexOf(tag.toLowerCase()) !== -1;
+  }
+
+  function meaningfulChildren(node) {
+    var result = [];
+    for (var i = 0; i < node.childNodes.length; i++) {
+      var child = node.childNodes[i];
+      if (child.nodeType === Node.TEXT_NODE) {
+        if (child.textContent.trim()) {
+          result.push(child);
+        }
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        result.push(child);
+      }
+    }
+    return result;
+  }
+
+  function serializeNode(node, depth) {
     var tab = '  ';
-    var indent = 0;
-    var lines = html
-      .trim()
-      .replace(/<!--[\s\S]*?-->/g, '')
-      .replace(/>\s+</g, '>\n<')
-      .split('\n')
-      .map(function (line) { return line.trim(); })
-      .filter(Boolean);
+    var pad = tab.repeat(depth);
 
-    return lines.map(function (line) {
-      var isClosing = /^<\//.test(line);
-      var isSelfClosing = /\/>$/.test(line);
-      var isVoid = new RegExp('^<(' + VOID_TAGS.join('|') + ')\\b', 'i').test(line);
-      var isInlineClose = /^<[^/!][^>]*>[^<]*<\/[^>]+>$/.test(line);
+    if (node.nodeType === Node.TEXT_NODE) {
+      return [pad + escapeText(node.textContent.trim())];
+    }
 
-      if (isClosing) {
-        indent = Math.max(0, indent - 1);
+    if (node.nodeType !== Node.ELEMENT_NODE) {
+      return [];
+    }
+
+    var tag = node.tagName.toLowerCase();
+    var booleanAttrs = { checked: true, disabled: true, readonly: true, required: true, multiple: true, selected: true };
+    var attrs = [];
+    for (var i = 0; i < node.attributes.length; i++) {
+      var attr = node.attributes[i];
+      if (booleanAttrs[attr.name.toLowerCase()] && (attr.value === '' || attr.value === attr.name)) {
+        attrs.push(attr.name);
+      } else {
+        attrs.push(attr.name + '="' + escapeAttr(attr.value) + '"');
       }
+    }
+    var attrStr = attrs.length ? ' ' + attrs.join(' ') : '';
 
-      var formatted = tab.repeat(indent) + line;
+    if (isVoidTag(tag)) {
+      return [pad + '<' + tag + attrStr + '>'];
+    }
 
-      if (!isClosing && !isSelfClosing && !isVoid && !isInlineClose && /^<[^/!]/.test(line)) {
-        indent += 1;
-      }
+    var children = meaningfulChildren(node);
 
-      return formatted;
-    }).join('\n');
+    if (children.length === 0) {
+      return [pad + '<' + tag + attrStr + '></' + tag + '>'];
+    }
+
+    if (children.length === 1 && children[0].nodeType === Node.TEXT_NODE) {
+      return [pad + '<' + tag + attrStr + '>' + escapeText(children[0].textContent.trim()) + '</' + tag + '>'];
+    }
+
+    var lines = [pad + '<' + tag + attrStr + '>'];
+    for (var j = 0; j < children.length; j++) {
+      lines = lines.concat(serializeNode(children[j], depth + 1));
+    }
+    lines.push(pad + '</' + tag + '>');
+    return lines;
+  }
+
+  function serializeNodes(nodes, depth) {
+    var lines = [];
+    for (var k = 0; k < nodes.length; k++) {
+      lines = lines.concat(serializeNode(nodes[k], depth));
+    }
+    return lines;
+  }
+
+  function formatHtml(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html.trim();
+    return serializeNodes(template.content.childNodes, 0).join('\n');
   }
 
   function convertInlineStyle(styleStr) {
@@ -87,17 +149,27 @@
     jsx = jsx.replace(/\bclass=/g, 'className=');
     jsx = jsx.replace(/\bfor=/g, 'htmlFor=');
     jsx = jsx.replace(/\btabindex=/g, 'tabIndex=');
-    jsx = jsx.replace(/\breadonly\b/g, 'readOnly');
+    jsx = jsx.replace(/\breadonly(?:="")?/g, 'readOnly');
     jsx = jsx.replace(/\bmaxlength=/g, 'maxLength=');
     jsx = jsx.replace(/\bcolspan=/g, 'colSpan=');
     jsx = jsx.replace(/\browspan=/g, 'rowSpan=');
     jsx = jsx.replace(/\bautocomplete=/g, 'autoComplete=');
     jsx = jsx.replace(/\bcharset=/g, 'charSet=');
     jsx = jsx.replace(/\bstroke-width=/g, 'strokeWidth=');
+    jsx = jsx.replace(/\bstroke-linecap=/g, 'strokeLinecap=');
+    jsx = jsx.replace(/\bstroke-linejoin=/g, 'strokeLinejoin=');
+    jsx = jsx.replace(/\bfill-rule=/g, 'fillRule=');
+    jsx = jsx.replace(/\bclip-rule=/g, 'clipRule=');
 
-    jsx = jsx.replace(/\sdisabled(?=\s|\/?>)/g, ' disabled={true}');
-    jsx = jsx.replace(/\schecked(?=\s|\/?>)/g, ' defaultChecked={true}');
-    jsx = jsx.replace(/\sselected(?=\s|\/?>)/g, ' selected={true}');
+    jsx = jsx.replace(/\s(checked|disabled|required|multiple|readonly)(?:="")?(?=\s|\/?>)/gi, function (_, attr) {
+      if (attr.toLowerCase() === 'readonly') {
+        return ' readOnly={true}';
+      }
+      if (attr.toLowerCase() === 'checked') {
+        return ' defaultChecked={true}';
+      }
+      return ' ' + attr + '={true}';
+    });
 
     jsx = jsx.replace(/\sstyle="([^"]*)"/g, function (_, styleStr) {
       return ' style={{' + convertInlineStyle(styleStr) + '}}';
@@ -113,7 +185,8 @@
       });
     });
 
-    jsx = jsx.replace(/\sselected=\{true\}/g, '');
+    jsx = jsx.replace(/\sselected(?:=\{true\}|="")?(?=\s|\/?>)/gi, '');
+    jsx = jsx.replace(/\sdefaultChecked=\{true\}\sdefaultChecked=\{true\}/g, ' defaultChecked={true}');
 
     return jsx;
   }
@@ -149,13 +222,18 @@
     return total > 1 ? base + (index + 1) : base;
   }
 
-  function createMarkupBlock(sourceHtml, componentName) {
+  function createMarkupBlock(sourceHtml, componentName, options) {
+    options = options || {};
     var htmlMarkup = formatHtml(sourceHtml);
     var jsxBody = htmlToJsx(sourceHtml);
     var nextMarkup = buildNextJsMarkup(jsxBody, componentName);
 
     var block = document.createElement('div');
     block.className = 'ds-markup';
+
+    var noteHtml = options.showcaseNote
+      ? '<p class="ds-markup__note">Showcase layout classes/styles on the demo container (e.g. <code>ds-demo--inline</code>, grid spacing) are omitted — copy the component markup below.</p>'
+      : '';
 
     block.innerHTML =
       '<div class="ds-markup__header">' +
@@ -165,6 +243,7 @@
         '</div>' +
         '<button type="button" class="btn btn--subtle btn--sm ds-markup__copy">Copy</button>' +
       '</div>' +
+      noteHtml +
       '<pre class="ds-markup__code ds-markup__panel is-active" data-panel="html"><code>' +
         escapeHtml(htmlMarkup) +
       '</code></pre>' +
@@ -289,8 +368,13 @@
         var componentName = demo.dataset.componentName ||
           deriveComponentName(section.id, index, demos.length);
 
+        var showcaseNote = demo.hasAttribute('style') ||
+          /\b(ds-demo--inline|ds-demo--stack|ds-demo--grid|mt-\d)\b/.test(demo.className);
+
         demo.classList.add('ds-demo--has-markup');
-        demo.insertAdjacentElement('afterend', createMarkupBlock(source.innerHTML, componentName));
+        demo.insertAdjacentElement('afterend', createMarkupBlock(source.innerHTML, componentName, {
+          showcaseNote: showcaseNote
+        }));
       });
     });
   }

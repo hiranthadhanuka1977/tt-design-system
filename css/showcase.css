@@ -192,6 +192,20 @@
   font-family: var(--font-family-mono);
 }
 
+.ds-markup__note {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
+  line-height: var(--line-height-relaxed);
+}
+
+.ds-markup__note code {
+  font-size: inherit;
+  padding: 0 4px;
+}
+
 .ds-markup__code {
   margin: 0;
   padding: var(--space-4);
